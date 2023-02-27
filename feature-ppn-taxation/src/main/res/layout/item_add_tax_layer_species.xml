@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/addTaxLayerSpeciesButton"
+        style="@style/Widget.GlpmLocal.SquareImageButton"
+        android:layout_width="@dimen/square_button_size"
+        android:layout_height="@dimen/square_button_size"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/default_margin"
+        android:src="@drawable/ic_add" />
+</layout>

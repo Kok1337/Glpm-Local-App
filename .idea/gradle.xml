@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="16" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/database" />
+            <option value="$PROJECT_DIR$/core/dialog" />
+            <option value="$PROJECT_DIR$/core/iu" />
+            <option value="$PROJECT_DIR$/core/providing-dependencies" />
+            <option value="$PROJECT_DIR$/core/providing-dependencies-dagger" />
+            <option value="$PROJECT_DIR$/core/searchable-spinner" />
+            <option value="$PROJECT_DIR$/core/utils" />
+            <option value="$PROJECT_DIR$/core/utils/app-listeners" />
+            <option value="$PROJECT_DIR$/core/utils/common-diff-callback" />
+            <option value="$PROJECT_DIR$/core/utils/extensions" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/age_group" />
+            <option value="$PROJECT_DIR$/data/bonitet" />
+            <option value="$PROJECT_DIR$/data/dictionary" />
+            <option value="$PROJECT_DIR$/data/forest_purpose" />
+            <option value="$PROJECT_DIR$/data/land" />
+            <option value="$PROJECT_DIR$/data/non_forest_land" />
+            <option value="$PROJECT_DIR$/data/ozu" />
+            <option value="$PROJECT_DIR$/data/protection_category" />
+            <option value="$PROJECT_DIR$/data/species" />
+            <option value="$PROJECT_DIR$/data/tax" />
+            <option value="$PROJECT_DIR$/data/tax-layer" />
+            <option value="$PROJECT_DIR$/data/tax-layer-species" />
+            <option value="$PROJECT_DIR$/data/unforested_land" />
+            <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/domain/age_group" />
+            <option value="$PROJECT_DIR$/domain/bonitet" />
+            <option value="$PROJECT_DIR$/domain/forest_purpose" />
+            <option value="$PROJECT_DIR$/domain/land" />
+            <option value="$PROJECT_DIR$/domain/non_forest_land" />
+            <option value="$PROJECT_DIR$/domain/ozu" />
+            <option value="$PROJECT_DIR$/domain/protection_category" />
+            <option value="$PROJECT_DIR$/domain/species" />
+            <option value="$PROJECT_DIR$/domain/tax" />
+            <option value="$PROJECT_DIR$/domain/tax-layer" />
+            <option value="$PROJECT_DIR$/domain/tax-layer-species" />
+            <option value="$PROJECT_DIR$/domain/unforested_land" />
+            <option value="$PROJECT_DIR$/feature-ppn-taxation" />
+            <option value="$PROJECT_DIR$/feature-ppn-taxation/feature-ppn-taxation-sample" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

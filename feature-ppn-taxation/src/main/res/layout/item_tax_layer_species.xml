@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        style="@style/ItemSpinnerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/taxLayerSpeciesCoeffTextView"
+            style="@style/Widget.GlpmLocal.TextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/taxLayerSpeciesShortNameTextView"
+            style="@style/Widget.GlpmLocal.TextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/taxLayerSpeciesAgeTextView"
+            style="@style/Widget.GlpmLocal.TextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/taxLayerSpeciesHeightTextView"
+            style="@style/Widget.GlpmLocal.TextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/taxLayerSpeciesDiameterTextView"
+            style="@style/Widget.GlpmLocal.TextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/taxLayerSpeciesStockTextView"
+            style="@style/Widget.GlpmLocal.TextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageView
+            android:id="@+id/taxLayerSpeciesDeleteSpeciesButton"
+            style="@style/Widget.GlpmLocal.SquareImageButton"
+            android:layout_width="@dimen/square_button_size"
+            android:layout_height="@dimen/square_button_size"
+            android:src="@drawable/ic_remove" />
+
+    </LinearLayout>
+</layout>

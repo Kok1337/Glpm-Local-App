@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/mainTextView"
+        style="@style/Widget.GlpmLocal.TextView"
+        android:layout_marginVertical="@dimen/item_vertical_half_padding"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textSize="@dimen/big_text_size" />
+</layout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Не покрыта лесом"
+                android:textSize="@dimen/title_text_size"/>
+            <CheckBox
+                android:id="@+id/notCoveredForestCheckBox"
+                android:gravity="center"
+                android:layout_margin="0dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/notCoveredLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/landSpinner"
+                style="@style/Widget.GlpmLocal.Spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:hint="Земли" />
+            <TextView
+                android:id="@+id/landCategorySpinner"
+                style="@style/Widget.GlpmLocal.Spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_weight="1"
+                android:hint="Категория земель" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/coveredLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/targetCategorySpinner"
+                    style="@style/Widget.GlpmLocal.Spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/widget_height"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:hint="Целовое назначение" />
+                <TextView
+                    android:id="@+id/protectionCategorySpinner"
+                    style="@style/Widget.GlpmLocal.Spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/widget_height"
+                    android:layout_weight="1"
+                    android:hint="Категория защитности" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:id="@+id/bonitetSpinner"
+                    style="@style/Widget.GlpmLocal.Spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/widget_height"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:hint="Бонитет" />
+                <TextView
+                    android:id="@+id/forestTypeSpinner"
+                    style="@style/Widget.GlpmLocal.TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/widget_height"
+                    android:layout_weight="1"
+                    android:hint="Тип леса" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ozuSpinner"
+                style="@style/Widget.GlpmLocal.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_height"
+                android:layout_marginTop="8dp"
+                android:hint="ОЗУ" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
