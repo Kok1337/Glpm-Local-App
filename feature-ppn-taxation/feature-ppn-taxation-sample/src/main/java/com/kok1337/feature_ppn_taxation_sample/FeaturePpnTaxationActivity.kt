@@ -62,7 +62,7 @@ class FeaturePpnTaxationActivity : AppCompatActivity(), HasDependencies {
         }
 
         DaggerFeaturePpnTaxationActivityComponent.factory()
-            .create(jdbcTemplate, taxRedactorProvider, taxStateFlowProvider)
+            .create(this, jdbcTemplate, taxStateFlowProvider, taxRedactorProvider)
             .inject(this)
 
         setContentView(R.layout.activity_feature_ppn_taxation)
@@ -111,7 +111,7 @@ class FeaturePpnTaxationActivity : AppCompatActivity(), HasDependencies {
             _taxFlow.update { it.copy(protectionCategory = protectionCategory) }
         }
 
-        override suspend fun updateBonitet(bonitet: Bonitet) {
+        override suspend fun updateBonitet(bonitet: Bonitet?) {
             _taxFlow.update { it.copy(bonitet = bonitet) }
         }
 
@@ -181,11 +181,12 @@ class FeaturePpnTaxationActivity : AppCompatActivity(), HasDependencies {
         }
 
         override suspend fun deleteTaxLayer(taxLayerId: UUID) {
-            updateTaxLayer(taxLayerId) { taxLayer ->
-                val taxLayerSpeciesList = ArrayList(taxLayer.taxLayerSpeciesList)
-                val removeIndex = taxLayerSpeciesList.indexOfFirst { it.id == taxLayerId }
-                taxLayerSpeciesList.removeAt(removeIndex)
-                taxLayer.copy(taxLayerSpeciesList = taxLayerSpeciesList)
+            _taxFlow.update {
+                val taxLayerList = ArrayList(it.taxLayerList)
+                val deleteIndex =
+                    taxLayerList.indexOfFirst { taxLayer -> taxLayer.id == taxLayerId }
+                taxLayerList.removeAt(deleteIndex)
+                it.copy(taxLayerList = taxLayerList)
             }
         }
     }

@@ -22,11 +22,24 @@ data class TaxLayer(
     val density: Double? = null,
     val condition: String? = null,
 ) {
-    val composition: String
+    val composition: String = buildComposition()
 
-    init {
-        composition = ""
+    private fun buildComposition(): String {
+        val taxSpeciesWithSpeciesList = taxLayerSpeciesList.filter { it.species != null }
+        if (taxSpeciesWithSpeciesList.isEmpty()) {
+            return ""
+        }
+
+        val taxSpeciesWithCoeff = taxSpeciesWithSpeciesList.filter { !it.isExtra }
+        val taxSpeciesWithoutCoeff = taxSpeciesWithSpeciesList.filter { it.isExtra }
+
+        val compositionWithCoeff =
+            taxSpeciesWithCoeff.joinToString("") { "${it.coeff}${it.species!!.shortName}" }
+        val compositionWithoutCoeff =
+            taxSpeciesWithoutCoeff.joinToString("+") { it.species!!.shortName }
+
+        if (taxSpeciesWithCoeff.isEmpty()) return compositionWithoutCoeff
+        if (taxSpeciesWithoutCoeff.isEmpty()) return compositionWithCoeff
+        return "$compositionWithCoeff+$compositionWithoutCoeff"
     }
-
-//    private fun buildComposition() {}
 }

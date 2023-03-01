@@ -2,29 +2,24 @@ package com.kok1337.feature_ppn_taxation_sample.di.module
 
 import com.kok1337.feature_ppn_taxation.api.dependencies.*
 import com.kok1337.feature_ppn_taxation_sample.di.FeaturePpnTaxationActivityComponent
+import com.kok1337.feature_ppn_taxation_sample.di.module.provider.SelectorProviderModule
 import com.kok1337.providing_dependencies.Dependencies
 import com.kok1337.providing_dependencies_dagger.DependenciesKey
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.multibindings.IntoMap
 
 @Module(
-//    includes = [
-//        FeaturePpnTaxationRepositoryModule::class,
-//        FeaturePpnTaxationUseCaseModule::class,
-//        FeaturePpnTaxationSpinnerRepositoryModule::class,
-//    ]
+    includes = [
+        SelectorProviderModule::class,
+    ]
 )
 interface FeaturePpnTaxationModule {
-
-
     @Binds
     @IntoMap
     @DependenciesKey(FeaturePpnTaxationDependencies::class)
     fun bindFeaturePpnTaxationDeps(impl: FeaturePpnTaxationActivityComponent): Dependencies
 }
-
 
 
 /*

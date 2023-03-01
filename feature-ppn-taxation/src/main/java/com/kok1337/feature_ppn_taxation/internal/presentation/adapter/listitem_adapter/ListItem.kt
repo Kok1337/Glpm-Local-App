@@ -1,0 +1,3 @@
+package com.kok1337.feature_ppn_taxation.internal.presentation.adapter.listitem_adapter
+
+internal interface ListItem

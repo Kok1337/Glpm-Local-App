@@ -13,9 +13,10 @@ data class TaxLayerSpecies(
     val height: Int? = null,
     val diameter: Int? = null,
     val isMain: Boolean? = null,
-    val isExtra: Boolean = false,
 //    val speciesNum: Int? = null,
     val gen: Int = 1,
 //    val stock: Int? = null,
     val merchantabilityGroupId: Int? = null,
-)
+) {
+    val isExtra: Boolean = coeff == null || coeff == 0
+}

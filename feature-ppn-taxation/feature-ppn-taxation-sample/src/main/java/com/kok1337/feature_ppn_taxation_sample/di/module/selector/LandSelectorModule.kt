@@ -3,6 +3,7 @@ package com.kok1337.feature_ppn_taxation_sample.di.module.selector
 import android.content.Context
 import com.kok1337.extensions.showDialog
 import com.kok1337.feature_ppn_taxation.api.dependencies.LandSelector
+import com.kok1337.feature_ppn_taxation_sample.di.module.use_case.LandUseCaseModule
 import com.kok1337.land.api.model.Land
 import com.kok1337.land.api.use_case.GetAllLandUseCase
 import com.kok1337.searchable_spinner.domain.repository.SearchableSpinnerRepository
@@ -10,7 +11,11 @@ import com.kok1337.searchable_spinner.presentation.dialog.SimpleSearchableSpinne
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(
+    includes = [
+        LandUseCaseModule::class,
+    ]
+)
 internal interface LandSelectorModule {
     companion object {
         @Provides

@@ -16,7 +16,7 @@ internal object TaxLayerSpeciesMapper {
             height = apiModel.height,
             diameter = apiModel.diameter,
             isMain = apiModel.isMain,
-            isExtra = apiModel.isExtra,
+//            isExtra = apiModel.isExtra,
 //            speciesNum = apiModel.speciesNum,
             gen = apiModel.gen,
 //            stock = apiModel.stock,

@@ -1,10 +1,21 @@
 package com.kok1337.feature_ppn_taxation_sample.di.module.provider
 
 import com.kok1337.feature_ppn_taxation.api.dependencies.*
+import com.kok1337.feature_ppn_taxation_sample.di.module.selector.LandSelectorModule
+import com.kok1337.feature_ppn_taxation_sample.di.module.selector.TaxLayerSelectorModule
+import com.kok1337.feature_ppn_taxation_sample.di.module.selector.TaxLayerSpeciesSelectorModule
+import com.kok1337.feature_ppn_taxation_sample.di.module.selector.TaxSelectorModule
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(
+    includes = [
+        LandSelectorModule::class,
+        TaxSelectorModule::class,
+        TaxLayerSelectorModule::class,
+        TaxLayerSpeciesSelectorModule::class,
+    ]
+)
 internal interface SelectorProviderModule {
     companion object {
         @Provides

@@ -42,7 +42,7 @@ interface TaxRedactor {
     suspend fun updateNonForestLand(nonForestLand: NonForestLand?)
     suspend fun updateForestPurpose(forestPurpose: ForestPurpose?)
     suspend fun updateProtectionCategory(protectionCategory: ProtectionCategory?)
-    suspend fun updateBonitet(bonitet: Bonitet)
+    suspend fun updateBonitet(bonitet: Bonitet?)
     suspend fun updateForestType(forestType: String?)
     suspend fun updateOzu(ozu: Ozu?)
     suspend fun addTaxLayer()
@@ -106,7 +106,7 @@ interface TaxSelector {
     )
 
     suspend fun selectOzu(
-        currentOzu: String?,
+        currentOzu: Ozu?,
         onOzuSelected: (Ozu?) -> Unit
     )
 }
@@ -123,17 +123,17 @@ interface TaxLayerSelector {
     )
 
     suspend fun selectAgeGroup(
-        currentAgeGroup: Int?,
+        currentAgeGroup: AgeGroup?,
         onAgeGroupSelected: (AgeGroup?) -> Unit
     )
 
     suspend fun selectFullness(
-        currentFullness: Int?,
+        currentFullness: Double?,
         onFullnessSelected: (Double?) -> Unit
     )
 
     suspend fun selectStock(
-        currentStock: Int?,
+        currentStock: Double?,
         onStockSelected: (Double?) -> Unit
     )
 }

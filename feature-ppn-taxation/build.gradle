@@ -42,8 +42,6 @@ dependencies {
     api project(':core:providing-dependencies')
     api project(':domain:land')
 
-    implementation project(':core:dialog')
-    api project(':core:searchable-spinner')
     implementation project(':core:utils:extensions')
     implementation project(':core:utils:common-diff-callback')
 

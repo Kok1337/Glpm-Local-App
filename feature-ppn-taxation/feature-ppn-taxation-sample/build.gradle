@@ -48,6 +48,8 @@ dependencies {
     implementation project(':core:utils:extensions')
     implementation project(':core:providing-dependencies')
     implementation project(':core:providing-dependencies-dagger')
+    implementation project(':core:dialog')
+    implementation project(':core:searchable-spinner')
 
 
 //    // Base implementation

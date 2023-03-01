@@ -1,6 +1,5 @@
 package com.kok1337.feature_ppn_taxation.internal.di
 
-import androidx.fragment.app.Fragment
 import com.kok1337.feature_ppn_taxation.api.dependencies.FeaturePpnTaxationDependencies
 import com.kok1337.feature_ppn_taxation.api.fragment.PpnTaxationFragment
 import dagger.Component

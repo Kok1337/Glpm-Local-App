@@ -3,8 +3,15 @@ package com.kok1337.feature_ppn_taxation_sample.di.module.selector
 import android.content.Context
 import com.kok1337.bonitet.api.model.Bonitet
 import com.kok1337.bonitet.api.use_case.GetAllBonitetBySearchUseCase
+import com.kok1337.dialog.presentation.dialog.InputStringDialog
 import com.kok1337.extensions.showDialog
 import com.kok1337.feature_ppn_taxation.api.dependencies.TaxSelector
+import com.kok1337.feature_ppn_taxation_sample.di.module.use_case.BonitetUseCaseModule
+import com.kok1337.feature_ppn_taxation_sample.di.module.use_case.ForestPurposeUseCaseModule
+import com.kok1337.feature_ppn_taxation_sample.di.module.use_case.NonForestLandUseCaseModule
+import com.kok1337.feature_ppn_taxation_sample.di.module.use_case.OzuUseCaseModule
+import com.kok1337.feature_ppn_taxation_sample.di.module.use_case.ProtectionCategoryUseCaseModule
+import com.kok1337.feature_ppn_taxation_sample.di.module.use_case.UnforestedLandUseCaseModule
 import com.kok1337.forest_purpose.api.model.ForestPurpose
 import com.kok1337.forest_purpose.api.use_case.GetAllForestPurposeBySearchUseCase
 import com.kok1337.non_forest_land.api.model.NonForestLand
@@ -20,7 +27,16 @@ import com.kok1337.unforested_land.api.use_case.GetAllUnforestedLandBySearchUseC
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(
+    includes = [
+        UnforestedLandUseCaseModule::class,
+        NonForestLandUseCaseModule::class,
+        ForestPurposeUseCaseModule::class,
+        ProtectionCategoryUseCaseModule::class,
+        BonitetUseCaseModule::class,
+        OzuUseCaseModule::class
+    ]
+)
 internal interface TaxSelectorModule {
     companion object {
         @Provides
@@ -113,18 +129,49 @@ internal interface TaxSelectorModule {
                 currentBonitet: Bonitet?,
                 onBonitetSelected: (Bonitet?) -> Unit
             ) {
-                TODO("Not yet implemented")
+                val title = "Выберите бонитет"
+                val repository = SearchableSpinnerRepository { search, _ ->
+                    getAllBonitetBySearchUseCase(search)
+                }
+                val itemToText = { item: Bonitet -> item.name }
+                val dialog = SimpleSearchableSpinnerDialog(
+                    title = title,
+                    selectedItem = currentBonitet,
+                    searchableSpinnerRepository = repository,
+                    itemToTextTransformation = itemToText,
+                    onItemSelected = onBonitetSelected
+                )
+                showDialog(dialog, context)
             }
 
             override suspend fun selectForestType(
                 currentForestType: String?,
                 onForestTypeSelected: (String?) -> Unit
             ) {
-                TODO("Not yet implemented")
+                val title = "Введите тип леса"
+                val dialog = InputStringDialog(
+                    title = title,
+                    startValue = currentForestType,
+                    isNullable = true,
+                    onValueIntroduced = onForestTypeSelected
+                )
+                showDialog(dialog, context)
             }
 
-            override suspend fun selectOzu(currentOzu: String?, onOzuSelected: (Ozu?) -> Unit) {
-                TODO("Not yet implemented")
+            override suspend fun selectOzu(currentOzu: Ozu?, onOzuSelected: (Ozu?) -> Unit) {
+                val title = "Выберите бонитет"
+                val repository = SearchableSpinnerRepository { search, _ ->
+                    getAllOzuBySearchUseCase(search)
+                }
+                val itemToText = { item: Ozu -> item.name }
+                val dialog = SimpleSearchableSpinnerDialog(
+                    title = title,
+                    selectedItem = currentOzu,
+                    searchableSpinnerRepository = repository,
+                    itemToTextTransformation = itemToText,
+                    onItemSelected = onOzuSelected
+                )
+                showDialog(dialog, context)
             }
         }
     }

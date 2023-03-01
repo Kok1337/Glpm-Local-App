@@ -1,12 +1,12 @@
-package com.kok1337.feature_ppn_taxation.internal.presentation.adapter.delegate
+package com.kok1337.feature_ppn_taxation.internal.presentation.adapter.listitem_adapter.delegate
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.kok1337.feature_ppn_taxation.databinding.ItemAddTaxLayerBinding
-import com.kok1337.feature_ppn_taxation.internal.presentation.adapter.ListItem
-import com.kok1337.feature_ppn_taxation.internal.presentation.adapter.listener.AddTaxLayerListener
+import com.kok1337.feature_ppn_taxation.internal.presentation.adapter.listitem_adapter.ListItem
+import com.kok1337.feature_ppn_taxation.internal.presentation.adapter.listitem_adapter.listener.AddTaxLayerListener
 import com.kok1337.feature_ppn_taxation.internal.presentation.item.AddTaxLayerItem
 
 internal class AddTaxLayerItemDelegate(
