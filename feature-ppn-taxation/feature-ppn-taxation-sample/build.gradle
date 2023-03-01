@@ -66,6 +66,7 @@ dependencies {
 
 
     implementation "com.google.dagger:dagger:$dagger"
+    implementation project(path: ':core:dialog')
     kapt "com.google.dagger:dagger-compiler:$dagger_compiler"
 
     implementation 'androidx.core:core-ktx:1.7.0'
