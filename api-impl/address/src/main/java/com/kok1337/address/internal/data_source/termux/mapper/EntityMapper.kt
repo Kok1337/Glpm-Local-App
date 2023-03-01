@@ -1,12 +1,9 @@
 package com.kok1337.address.internal.data_source.termux.mapper
 
-import com.kok1337.address.api.model.District
-import com.kok1337.address.api.model.Forestry
-import com.kok1337.address.api.model.LocalForestry
-import com.kok1337.address.api.model.Region
+import com.kok1337.address.api.model.*
 import com.kok1337.address.internal.data_source.termux.entity.*
 
-object EntityMapper {
+internal object EntityMapper {
     fun map(districtEntity: DistrictEntity): District = District(
         id = districtEntity.id!!,
         name = districtEntity.name!!,
@@ -27,8 +24,18 @@ object EntityMapper {
         name = localForestryEntity.name!!,
     )
 
-    fun map(subForestryEntity: SubForestryEntity): SubForestryEntity = SubForestryEntity(
+    fun map(subForestryEntity: SubForestryEntity): SubForestry = SubForestry(
         id = subForestryEntity.id,
         name = subForestryEntity.name ?: "(Нет)",
+    )
+
+    fun map(address: Address): LocalityEntity = LocalityEntity(
+        id = null,
+        districtId = address.district?.id,
+        regionId = address.region?.id,
+        forestryId = address.forestry?.id,
+        localForestryId = address.localForestry?.id,
+        subForestryId = address.subForestry?.id,
+        area = address.area,
     )
 }

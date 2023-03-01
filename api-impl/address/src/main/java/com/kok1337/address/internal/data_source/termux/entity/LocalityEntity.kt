@@ -5,7 +5,7 @@ import com.kok1337.database.api.annotation.Entity
 import java.util.*
 
 @Entity
-class LocalityEntity(
+internal class LocalityEntity(
     @Column("id") var id: UUID? = null,
     @Column("fo_id") var districtId: Int? = null,
     @Column("region_id") var regionId: Int? = null,

@@ -36,5 +36,5 @@ interface AddressRepository {
 
     suspend fun findLocalityByAddress(address: Address): Locality
 
-    suspend fun fundLocalityById(id: UUID): Locality
+    suspend fun findLocalityById(id: UUID): Locality
 }

@@ -35,8 +35,8 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':core:ui')
     // Modules
-    implementation project(path: ':core:iu')
 
     // Base implementation
     implementation "androidx.core:core-ktx:$core_ktx"

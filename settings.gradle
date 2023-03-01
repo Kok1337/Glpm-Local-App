@@ -16,7 +16,7 @@ rootProject.name = "GLPM-Local"
 include ':app'
 
 include ':core:database'
-include ':core:iu'
+include ':core:ui'
 include ':core:providing-dependencies'
 
 include ':data:species'
@@ -58,3 +58,4 @@ include ':api:district'
 include ':api-impl:district'
 include ':api:address'
 include ':api-impl:address'
+include ':feature-ppn-description'

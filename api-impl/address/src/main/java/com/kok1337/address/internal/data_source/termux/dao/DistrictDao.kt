@@ -6,7 +6,8 @@ import com.kok1337.database.api.mapper.EntityRowMapper
 import org.springframework.jdbc.core.JdbcTemplate
 import javax.inject.Inject
 
-class DistrictDao @Inject constructor(
+// TODO table name
+internal class DistrictDao @Inject constructor(
     private val jdbcTemplate: JdbcTemplate,
 ) {
     fun getAll(): List<DistrictEntity> {
@@ -26,5 +27,12 @@ class DistrictDao @Inject constructor(
         val query = "SELECT * FROM public.info_districts WHERE name ~* ?;"
         val entityRowMapper = EntityRowMapper.create(DistrictEntity::class.java)
         return jdbcTemplate.query(query, entityRowMapper, search)
+    }
+
+    fun getAllByIdsWithSearch(ids: List<Int>, search: String): List<DistrictEntity> {
+        val idsArgs = ids.joinToString(", ", "(", ")") { "?" }
+        val query = "SELECT * FROM public.info_districts WHERE id IN $idsArgs AND name ~* ?;"
+        val entityRowMapper = EntityRowMapper.create(DistrictEntity::class.java)
+        return jdbcTemplate.query(query, entityRowMapper, ids.toIntArray(), search)
     }
 }

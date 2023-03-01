@@ -12,8 +12,8 @@ internal class SimpleSearchableSpinnerAdapter<T>(
     override fun setupView(binding: ItemSimpleViewBinding, item: T, position: Int) {
         val textView = binding.mainTextView
         val drawableBackground = if (item == selectedItem)
-            com.kok1337.iu.R.drawable.vbg_selected_textview
-        else com.kok1337.iu.R.drawable.vbg_textview
+            com.kok1337.ui.R.drawable.vbg_selected_textview
+        else com.kok1337.ui.R.drawable.vbg_textview
         textView.setBackgroundResource(drawableBackground)
         textView.text = itemToTextTransformation(item)
     }

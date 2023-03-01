@@ -4,7 +4,7 @@ import com.kok1337.database.api.annotation.Column
 import com.kok1337.database.api.annotation.Entity
 
 @Entity
-class ForestryEntity(
+internal class ForestryEntity(
     @Column("id") var id: Int? = null,
     @Column("name") var name: String? = null,
 )

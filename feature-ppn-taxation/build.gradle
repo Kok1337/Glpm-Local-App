@@ -37,7 +37,7 @@ android {
 
 dependencies {
     api project(':domain:tax')
-    api project(':core:iu')
+    api project(':core:ui')
 
     api project(':core:providing-dependencies')
     api project(':domain:land')
