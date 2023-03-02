@@ -1,7 +1,10 @@
 package com.kok1337.feature_ppn_taxation_sample
 
 import android.os.Bundle
+import android.provider.ContactsContract.Data
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.kok1337.age_group.api.model.AgeGroup
 import com.kok1337.bonitet.api.model.Bonitet
 import com.kok1337.database.api.JdbcTemplateDatasourceProvider
@@ -21,19 +24,88 @@ import com.kok1337.tax.api.model.Tax
 import com.kok1337.tax_layer.api.model.TaxLayer
 import com.kok1337.tax_layer_species.api.model.TaxLayerSpecies
 import com.kok1337.unforested_land.api.model.UnforestedLand
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import org.ktorm.database.Database
+import org.ktorm.dsl.QueryRowSet
+import org.ktorm.dsl.inList
+import org.ktorm.entity.filter
+import org.ktorm.entity.forEach
+import org.ktorm.entity.sequenceOf
+import org.ktorm.schema.BaseTable
+import org.ktorm.schema.int
+import org.ktorm.schema.text
+import org.ktorm.support.postgresql.PostgreSqlDialect
+import org.ktorm.support.postgresql.ilike
+import org.springframework.jdbc.datasource.DriverManagerDataSource
+import org.springframework.jdbc.datasource.SingleConnectionDataSource
+import java.sql.Connection
+import java.sql.DriverManager
 import java.util.*
 import javax.inject.Inject
+import kotlin.concurrent.thread
 
 class FeaturePpnTaxationActivity : AppCompatActivity(), HasDependencies {
     @Inject
     override lateinit var depsMap: DepsMap
 
+    data class FederalDistrictApiModel(val id: Int, val name: String)
+    object FederalDistricts : BaseTable<FederalDistrictApiModel>("info_districts", schema = "public") {
+        val id = int("id").primaryKey()
+        val name = text("name")
+
+        override fun doCreateEntity(
+            row: QueryRowSet,
+            withReferences: Boolean
+        ): FederalDistrictApiModel = FederalDistrictApiModel(
+            id = row[id]!!,
+            name = row[name]!!,
+        )
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val host = "127.0.0.1"
+        val port = "5432"
+        val name = "glpm_local"
+
+        val url = "jdbc:postgresql://${host}:${port}/${name}"
+//        val dataSource = DriverManagerDataSource(url, "postgres", "postgres")
+//        dataSource.setDriverClassName("org.postgresql.Driver")
+
+        val database = Database.connect(
+            url = url,
+            driver = "org.postgresql.Driver",
+            user = "postgres",
+            password = "postgres",
+            dialect = PostgreSqlDialect(),
+            alwaysQuoteIdentifiers = true,
+            generateSqlInUpperCase = true
+        )
+
+//        val dataSource = SingleConnectionDataSource(url, "postgres", "postgres", true)
+//        val database = Database.connect(dataSource, )
+
+        val ids = listOf(1, 2, 3, 4, 5)
+        lifecycleScope.launch(Dispatchers.IO) {
+
+
+            val q = database.sequenceOf(FederalDistricts)
+                .filter { it.id.inList(ids) }
+                .filter { it.name ilike "%%" }
+
+            Log.e("Database", q.query.sql)
+
+            q.forEach {
+                Log.e("Database", it.toString())
+            }
+        }
 
         val jdbcTemplateDependencies = object : JdbcTemplateDependencies {
             override val jdbcTemplateDatasourceProvider: JdbcTemplateDatasourceProvider

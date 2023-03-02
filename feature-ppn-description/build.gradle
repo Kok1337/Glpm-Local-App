@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -28,14 +29,40 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
 }
 
 dependencies {
-    api project(':core:ui')
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation project(':core:ui')
+    api project(':core:utils:result')
+
+    implementation "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger_compiler"
+
+
+    implementation 'org.ktorm:ktorm-core:3.6.0'
+    implementation 'org.ktorm:ktorm-support-postgresql:3.6.0'
+
+    // Base implementation
+    implementation "androidx.core:core-ktx:$core_ktx"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    // ViewModel Kotlin
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_ktx"
+    // Fragment Kotlin
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
+    // Coroutines & Flow
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    // Reflection-based flavor
+    implementation "com.github.kirich1409:viewbindingpropertydelegate:$viewbindingpropertydelegate"
+    implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$viewbindingpropertydelegate"
+
+    // Test
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
 }

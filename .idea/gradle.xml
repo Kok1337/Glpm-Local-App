@@ -29,6 +29,7 @@
             <option value="$PROJECT_DIR$/core/utils/app-listeners" />
             <option value="$PROJECT_DIR$/core/utils/common-diff-callback" />
             <option value="$PROJECT_DIR$/core/utils/extensions" />
+            <option value="$PROJECT_DIR$/core/utils/result" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/age_group" />
             <option value="$PROJECT_DIR$/data/bonitet" />
@@ -44,6 +45,7 @@
             <option value="$PROJECT_DIR$/data/tax-layer-species" />
             <option value="$PROJECT_DIR$/data/unforested_land" />
             <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/domain/address" />
             <option value="$PROJECT_DIR$/domain/age_group" />
             <option value="$PROJECT_DIR$/domain/bonitet" />
             <option value="$PROJECT_DIR$/domain/forest_purpose" />

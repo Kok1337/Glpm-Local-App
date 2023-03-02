@@ -1,6 +1,5 @@
 package com.kok1337.address.internal.data_source.termux.dao
 
-import com.kok1337.address.internal.data_source.termux.entity.DistrictEntity
 import com.kok1337.address.internal.data_source.termux.entity.ForestryEntity
 import com.kok1337.database.api.exception.ItemNotFoundException
 import com.kok1337.database.api.mapper.EntityRowMapper

@@ -51,6 +51,8 @@ dependencies {
     implementation project(':core:dialog')
     implementation project(':core:searchable-spinner')
 
+    implementation 'org.ktorm:ktorm-core:3.6.0'
+    implementation 'org.ktorm:ktorm-support-postgresql:3.6.0'
 
 //    // Base implementation
 //    implementation "androidx.core:core-ktx:$core_ktx"

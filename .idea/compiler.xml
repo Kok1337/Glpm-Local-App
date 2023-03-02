@@ -3,6 +3,10 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="GLPM-Local.core.extensions" target="11" />
+      <module name="GLPM-Local.core.iu" target="16" />
+      <module name="GLPM-Local.core.result" target="1.8" />
+      <module name="GLPM-Local.core.result.main" target="1.8" />
+      <module name="GLPM-Local.core.result.test" target="1.8" />
       <module name="GLPM-Local.presentation.age_group" target="16" />
       <module name="GLPM-Local.presentation.bonitet" target="16" />
     </bytecodeTargetLevel>
