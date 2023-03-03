@@ -39,12 +39,14 @@ dependencies {
     implementation project(':core:ui')
     api project(':core:utils:result')
 
+    api project(":core:providing-dependencies")
+
     implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger_compiler"
 
 
-    implementation 'org.ktorm:ktorm-core:3.6.0'
-    implementation 'org.ktorm:ktorm-support-postgresql:3.6.0'
+    api 'org.ktorm:ktorm-core:3.6.0'
+    api 'org.ktorm:ktorm-support-postgresql:3.6.0'
 
     // Base implementation
     implementation "androidx.core:core-ktx:$core_ktx"

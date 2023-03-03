@@ -59,6 +59,7 @@
             <option value="$PROJECT_DIR$/domain/tax-layer-species" />
             <option value="$PROJECT_DIR$/domain/unforested_land" />
             <option value="$PROJECT_DIR$/feature-ppn-description" />
+            <option value="$PROJECT_DIR$/feature-ppn-description/feature-ppn-description-sample" />
             <option value="$PROJECT_DIR$/feature-ppn-taxation" />
             <option value="$PROJECT_DIR$/feature-ppn-taxation/feature-ppn-taxation-sample" />
           </set>
