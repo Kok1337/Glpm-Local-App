@@ -1,6 +1,7 @@
 package com.kok1337.feature_ppn_description_sample.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.kok1337.feature_ppn_description.api.AddressInMemoryRepository
@@ -22,17 +23,16 @@ class FeaturePpnDescriptionActivity : AppCompatActivity(), HasDependencies {
     override lateinit var depsMap: DepsMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_feature_ppn_description)
-
         val ppnDescriptionActivityDeps =
             (applicationContext as App).depsMap[PpnDescriptionActivityDeps::class.java] as PpnDescriptionActivityDeps
 
+        Log.e("FeaturePpnDescriptionActivity", "DaggerPpnDescriptionActivityComponent")
         DaggerPpnDescriptionActivityComponent.factory()
             .create(ppnDescriptionActivityDeps, AddressInMemoryRepositoryImpl())
             .inject(this)
 
-
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_feature_ppn_description)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .add(R.id.sample_container, PpnDescriptionFragment())
@@ -45,11 +45,9 @@ class FeaturePpnDescriptionActivity : AppCompatActivity(), HasDependencies {
             return viewModel.addressFlow
         }
 
-        override fun updateRegion(region: Region?) {
-        }
+        override fun updateRegion(region: Region?) = viewModel.updateRegion(region)
 
-        override fun updateForestry(forestry: Forestry?) {
-        }
+        override fun updateForestry(forestry: Forestry?) = viewModel.updateForestry(forestry)
 
         override fun updateLocalForestry(localForestry: LocalForestry?) {
         }

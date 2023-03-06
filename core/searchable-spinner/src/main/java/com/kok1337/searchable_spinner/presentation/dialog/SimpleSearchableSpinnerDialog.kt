@@ -3,7 +3,7 @@ package com.kok1337.searchable_spinner.presentation.dialog
 import com.kok1337.searchable_spinner.domain.repository.SearchableSpinnerRepository
 import com.kok1337.searchable_spinner.presentation.adapter.SimpleSearchableSpinnerAdapter
 
-class SimpleSearchableSpinnerDialog<T>(
+open class SimpleSearchableSpinnerDialog<T>(
     title: String,
     selectedItem: T?,
     searchableSpinnerRepository: SearchableSpinnerRepository<T>,

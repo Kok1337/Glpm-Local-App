@@ -18,6 +18,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/spring.tooling', 'META-INF/spring.handlers', 'META-INF/spring.schemas', 'META-INF/license.txt', 'META-INF/notice.txt']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,6 +36,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
     }
 }
 

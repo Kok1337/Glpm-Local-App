@@ -13,7 +13,7 @@ internal object LocalForestriesTable :
 
     override fun doCreateEntity(row: QueryRowSet, withReferences: Boolean): LocalForestryApiModel =
         LocalForestryApiModel(
-            id = row[RegionsTable.id]!!,
-            name = row[RegionsTable.name]!!,
+            id = row[id]!!,
+            name = row[name]!!,
         )
 }

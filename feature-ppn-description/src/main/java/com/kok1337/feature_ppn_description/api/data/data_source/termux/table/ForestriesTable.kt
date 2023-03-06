@@ -12,7 +12,7 @@ internal object ForestriesTable : BaseTable<ForestryApiModel>("info_forestries",
 
     override fun doCreateEntity(row: QueryRowSet, withReferences: Boolean): ForestryApiModel =
         ForestryApiModel(
-            id = row[RegionsTable.id]!!,
-            name = row[RegionsTable.name]!!,
+            id = row[id]!!,
+            name = row[name]!!,
         )
 }

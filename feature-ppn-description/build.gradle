@@ -44,6 +44,11 @@ dependencies {
     implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger_compiler"
 
+    implementation project(':core:utils:extensions')
+    implementation project(':core:searchable-spinner')
+
+    // Для драйвера
+    implementation project(':core:database')
 
     api 'org.ktorm:ktorm-core:3.6.0'
     api 'org.ktorm:ktorm-support-postgresql:3.6.0'

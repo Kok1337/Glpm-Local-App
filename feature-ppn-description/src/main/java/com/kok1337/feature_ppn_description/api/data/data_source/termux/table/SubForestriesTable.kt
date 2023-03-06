@@ -13,7 +13,7 @@ internal object SubForestriesTable :
 
     override fun doCreateEntity(row: QueryRowSet, withReferences: Boolean): SubForestryApiModel =
         SubForestryApiModel(
-            id = row[RegionsTable.id]!!,
-            name = row[RegionsTable.name]!!,
+            id = row[id]!!,
+            name = row[name]!!,
         )
 }
