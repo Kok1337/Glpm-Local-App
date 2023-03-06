@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/subjectSpinner"
+                style="@style/Widget.GlpmLocal.Spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:hint="Субъект РФ" />
+
+            <TextView
+                android:id="@+id/executorSpinner"
+                style="@style/Widget.GlpmLocal.Spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_weight="1"
+                android:hint="Исполнитель" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/changeCoordinateFormatButton"
+                android:layout_width="100dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_marginEnd="8dp"
+                android:enabled="false"
+                android:text="DMD" />
+
+            <TextView
+                android:id="@+id/coordinateTextView"
+                style="@style/Widget.GlpmLocal.TextView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:hint="Данные GPS" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/forestrySpinner"
+                style="@style/Widget.GlpmLocal.Spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:hint="Лесничество" />
+
+            <TextView
+                android:id="@+id/localForestrySpinner"
+                style="@style/Widget.GlpmLocal.Spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_weight="1"
+                android:hint="Участковое лесничество" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/subForestrySpinner"
+                style="@style/Widget.GlpmLocal.Spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="4"
+                android:hint="Подлесничество/Урочище/Участок" />
+
+            <TextView
+                android:id="@+id/areaEditText"
+                style="@style/Widget.GlpmLocal.TextView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:hint="кв" />
+
+            <TextView
+                android:id="@+id/sectionEditText"
+                style="@style/Widget.GlpmLocal.TextView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:hint="вд" />
+
+            <TextView
+                android:id="@+id/lpSectionEditText"
+                style="@style/Widget.GlpmLocal.TextView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:hint="лп вд" />
+
+            <TextView
+                android:id="@+id/sEditText"
+                style="@style/Widget.GlpmLocal.TextView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/widget_height"
+                android:layout_weight="1"
+                android:hint="s, га" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -48,6 +48,9 @@ dependencies {
     api 'org.ktorm:ktorm-core:3.6.0'
     api 'org.ktorm:ktorm-support-postgresql:3.6.0'
 
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2'
+    implementation project(':core:utils:common-diff-callback')
+
     // Base implementation
     implementation "androidx.core:core-ktx:$core_ktx"
     implementation "androidx.appcompat:appcompat:$appcompat"

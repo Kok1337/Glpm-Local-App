@@ -1,9 +1,13 @@
 package com.kok1337.feature_ppn_description.api.domain.use_case
 
+import com.kok1337.feature_ppn_description.api.AddressInMemoryRepository
 import com.kok1337.feature_ppn_description.api.domain.module.SubForestry
-import com.kok1337.result.DataResult
-import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-interface EnterSubForestryUseCase {
-    suspend operator fun invoke(): Flow<DataResult<SubForestry>>
+internal class EnterSubForestryUseCase @Inject constructor(
+    private val addressInMemoryRepository: AddressInMemoryRepository,
+) {
+    operator fun invoke(subForestry: SubForestry?) {
+        addressInMemoryRepository.updateSubForestry(subForestry)
+    }
 }

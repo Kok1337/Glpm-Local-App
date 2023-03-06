@@ -2,11 +2,14 @@ package com.kok1337.feature_ppn_description_sample.app
 
 import android.app.Application
 import android.util.Log
-import com.kok1337.feature_ppn_description.api.DatabaseFactory
+import com.kok1337.feature_ppn_description.api.data.data_source.termux.DatabaseFactory
+import com.kok1337.feature_ppn_description_sample.di.PpnDescriptionActivityDeps
+import com.kok1337.providing_dependencies.DepsMap
+import com.kok1337.providing_dependencies.HasDependencies
 import org.ktorm.database.Database
 import org.ktorm.support.postgresql.PostgreSqlDialect
 
-class App : Application() {
+class App : Application(), HasDependencies {
     internal inner class DatabaseFactoryImpl : DatabaseFactory {
         private val host = "127.0.0.1"
         private val port = "5432"
@@ -39,4 +42,13 @@ class App : Application() {
         super.onCreate()
         Log.e("FeaturePpnDescriptionApp", "onCreate")
     }
+
+    inner class PpnDescriptionActivityDepsImpl() : PpnDescriptionActivityDeps {
+        override val databaseFactory: DatabaseFactory get() = DatabaseFactoryImpl()
+    }
+
+    override val depsMap: DepsMap
+        get() = mapOf(
+            PpnDescriptionActivityDeps::class.java to PpnDescriptionActivityDepsImpl(),
+        )
 }
