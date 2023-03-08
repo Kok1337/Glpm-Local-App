@@ -65,13 +65,14 @@ internal class PpnDescriptionViewModel(
         return getAllLocalForestryWithSearchUseCase(forestry, search)
     }
 
-    fun updateSubForestry(subForestry: SubForestry?) =
-        enterSubForestryUseCase(subForestry)
+    fun updateSubForestry(subForestry: SubForestry?) = enterSubForestryUseCase(subForestry)
 
     suspend fun getAllSubForestryWithSearch(search: String): List<SubForestry> {
         val localForestry = _addressFlow.first().localForestry!!
         return getAllSubForestryWithSearchUseCase(localForestry, search)
     }
+
+    fun updateArea(area: String?) = enterAreaUseCase(area)
 
     class Factory @Inject constructor(
         private val enterRegionUseCase: EnterRegionUseCase,

@@ -1,5 +1,6 @@
 package com.kok1337.feature_ppn_description.api.data.data_source.termux.dao
 
+import android.util.Log
 import com.kok1337.feature_ppn_description.api.data.data_source.termux.DatabaseFactory
 import com.kok1337.feature_ppn_description.api.data.data_source.termux.table.LocalityTable
 import com.kok1337.feature_ppn_description.api.data.model.LocalityApiModel
@@ -12,6 +13,8 @@ import javax.inject.Inject
 class LocalityDao @Inject constructor(
     private val databaseFactory: DatabaseFactory,
 ) {
+    private val TAG = javaClass.simpleName
+
     fun getById(id: UUID): LocalityApiModel? {
         return databaseFactory.create().sequenceOf(LocalityTable).firstOrNull { it.id eq id }
     }
@@ -43,11 +46,12 @@ class LocalityDao @Inject constructor(
             .map { row -> row[LocalityTable.localForestryId]!! }
     }
 
-    fun getAllSubForestryIdsByLocalForestryId(localForestryId: Int): Iterable<Int> {
-        return databaseFactory.create().from(LocalityTable)
+    fun getAllSubForestryIdsByLocalForestryId(localForestryId: Int): Iterable<Int?> {
+        val query = databaseFactory.create().from(LocalityTable)
             .selectDistinct(LocalityTable.subForestryId)
             .where { LocalityTable.localForestryId eq localForestryId }
-            .map { row -> row[LocalityTable.subForestryId]!! }
+        Log.e(TAG, query.sql  + localForestryId)
+        return query.map { row -> row[LocalityTable.subForestryId] }
     }
 
 

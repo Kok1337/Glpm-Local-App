@@ -49,13 +49,12 @@ class FeaturePpnDescriptionActivity : AppCompatActivity(), HasDependencies {
 
         override fun updateForestry(forestry: Forestry?) = viewModel.updateForestry(forestry)
 
-        override fun updateLocalForestry(localForestry: LocalForestry?) {
-        }
+        override fun updateLocalForestry(localForestry: LocalForestry?) =
+            viewModel.updateLocalForestry(localForestry)
 
-        override fun updateSubForestry(subForestry: SubForestry?) {
-        }
+        override fun updateSubForestry(subForestry: SubForestry?) =
+            viewModel.updateSubForestry(subForestry)
 
-        override fun updateArea(area: String?) {
-        }
+        override fun updateArea(area: String?) = viewModel.updateArea(area)
     }
 }

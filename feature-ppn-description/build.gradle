@@ -46,6 +46,7 @@ dependencies {
 
     implementation project(':core:utils:extensions')
     implementation project(':core:searchable-spinner')
+    implementation project(':core:dialog')
 
     // Для драйвера
     implementation project(':core:database')
