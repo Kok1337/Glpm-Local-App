@@ -3,6 +3,9 @@ package com.kok1337.feature_ppn_description_sample.app
 import android.app.Application
 import android.util.Log
 import com.kok1337.feature_ppn_description.api.data.data_source.termux.DatabaseFactory
+import com.kok1337.feature_ppn_description.api.data.data_source.termux.dao.LocalityDao
+import com.kok1337.feature_ppn_description.api.data.repository.LocalityTermuxRepository
+import com.kok1337.feature_ppn_description.api.data.repository.LocalityTermuxRepository_Factory
 import com.kok1337.feature_ppn_description_sample.di.PpnDescriptionActivityDeps
 import com.kok1337.providing_dependencies.DepsMap
 import com.kok1337.providing_dependencies.HasDependencies

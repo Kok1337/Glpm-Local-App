@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+    api project(':shared:address')
+
     implementation project(':core:ui')
     api project(':core:utils:result')
 
@@ -47,9 +49,6 @@ dependencies {
     implementation project(':core:utils:extensions')
     implementation project(':core:searchable-spinner')
     implementation project(':core:dialog')
-
-    // Для драйвера
-    implementation project(':core:database')
 
     api 'org.ktorm:ktorm-core:3.6.0'
     api 'org.ktorm:ktorm-support-postgresql:3.6.0'

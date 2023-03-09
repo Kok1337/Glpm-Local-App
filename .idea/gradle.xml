@@ -11,12 +11,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
-            <option value="$PROJECT_DIR$/api-impl" />
-            <option value="$PROJECT_DIR$/api-impl/address" />
-            <option value="$PROJECT_DIR$/api-impl/district" />
-            <option value="$PROJECT_DIR$/api/address" />
-            <option value="$PROJECT_DIR$/api/district" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/database" />
@@ -24,6 +18,7 @@
             <option value="$PROJECT_DIR$/core/providing-dependencies" />
             <option value="$PROJECT_DIR$/core/providing-dependencies-dagger" />
             <option value="$PROJECT_DIR$/core/searchable-spinner" />
+            <option value="$PROJECT_DIR$/core/termux-database" />
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/core/utils" />
             <option value="$PROJECT_DIR$/core/utils/app-listeners" />
@@ -58,10 +53,14 @@
             <option value="$PROJECT_DIR$/domain/tax-layer" />
             <option value="$PROJECT_DIR$/domain/tax-layer-species" />
             <option value="$PROJECT_DIR$/domain/unforested_land" />
+            <option value="$PROJECT_DIR$/feature-ppn" />
             <option value="$PROJECT_DIR$/feature-ppn-description" />
             <option value="$PROJECT_DIR$/feature-ppn-description/feature-ppn-description-sample" />
             <option value="$PROJECT_DIR$/feature-ppn-taxation" />
             <option value="$PROJECT_DIR$/feature-ppn-taxation/feature-ppn-taxation-sample" />
+            <option value="$PROJECT_DIR$/feature-ppn/feature-ppn-sample" />
+            <option value="$PROJECT_DIR$/shared" />
+            <option value="$PROJECT_DIR$/shared/address" />
           </set>
         </option>
       </GradleProjectSettings>

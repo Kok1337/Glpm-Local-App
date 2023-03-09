@@ -2,6 +2,15 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
+      <module name="GLPM-Local.api-impl.address" target="1.8" />
+      <module name="GLPM-Local.api-impl.address.main" target="1.8" />
+      <module name="GLPM-Local.api-impl.address.test" target="1.8" />
+      <module name="GLPM-Local.api-impl.district" target="1.8" />
+      <module name="GLPM-Local.api-impl.district.main" target="1.8" />
+      <module name="GLPM-Local.api-impl.district.test" target="1.8" />
+      <module name="GLPM-Local.api.district" target="1.8" />
+      <module name="GLPM-Local.api.district.main" target="1.8" />
+      <module name="GLPM-Local.api.district.test" target="1.8" />
       <module name="GLPM-Local.core.extensions" target="11" />
       <module name="GLPM-Local.core.iu" target="16" />
       <module name="GLPM-Local.core.result" target="1.8" />

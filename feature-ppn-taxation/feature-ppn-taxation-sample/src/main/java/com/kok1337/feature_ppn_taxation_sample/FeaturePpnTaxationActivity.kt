@@ -87,7 +87,7 @@ class FeaturePpnTaxationActivity : AppCompatActivity(), HasDependencies {
             id = taxId,
             localityId = UUID.randomUUID(),
             section = "Section",
-            taxLayerList = taxLayerList
+            taxLayerList = taxLayerList,
         )
     }
 

@@ -1,3 +1,0 @@
-package com.kok1337.feature_ppn_description.internal.presentation.adapter.description_item_adapter
-
-internal interface DescriptionItem

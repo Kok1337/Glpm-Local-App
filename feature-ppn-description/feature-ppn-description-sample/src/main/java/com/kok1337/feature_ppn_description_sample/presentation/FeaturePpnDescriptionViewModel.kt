@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.asStateFlow
 class FeaturePpnDescriptionViewModel : ViewModel() {
     private val TAG = javaClass.simpleName
 
-    private val _addressStateFlow =
-        MutableStateFlow(Address(federalDistrict = FederalDistrict(5, "df")))
-    val addressFlow = _addressStateFlow.asStateFlow()
+    private val _localityStateFlow =
+        MutableStateFlow(Locality(federalDistrict = FederalDistrict(5, "df")))
+    val localityStateFlow = _localityStateFlow.asStateFlow()
 
     init {
         Log.e(TAG, "init")
@@ -23,38 +23,62 @@ class FeaturePpnDescriptionViewModel : ViewModel() {
     }
 
     fun updateRegion(region: Region?) {
-        val currentAddress = _addressStateFlow.value
-        if (currentAddress.region == region) return
-        val newAddress = Address(currentAddress.federalDistrict, region)
-        _addressStateFlow.value = newAddress
+        val currentLocality = _localityStateFlow.value
+        if (currentLocality.region == region) return
+        val newLocality = Locality(
+            federalDistrict = currentLocality.federalDistrict,
+            region = region,
+        )
+        _localityStateFlow.value = newLocality
     }
 
     fun updateForestry(forestry: Forestry?) {
-        val currentAddress = _addressStateFlow.value
-        if (currentAddress.forestry == forestry) return
-        val newAddress = Address(currentAddress.federalDistrict, currentAddress.region, forestry)
-        _addressStateFlow.value = newAddress
+        val currentLocality = _localityStateFlow.value
+        if (currentLocality.forestry == forestry) return
+        val newLocality = Locality(
+            federalDistrict = currentLocality.federalDistrict,
+            region = currentLocality.region,
+            forestry = forestry
+        )
+        _localityStateFlow.value = newLocality
     }
 
     fun updateLocalForestry(localForestry: LocalForestry?) {
-        val currentAddress = _addressStateFlow.value
-        if (currentAddress.localForestry == localForestry) return
-        val newAddress =
-            currentAddress.copy(localForestry = localForestry, subForestry = null, area = null)
-        _addressStateFlow.value = newAddress
+        val currentLocality = _localityStateFlow.value
+        if (currentLocality.localForestry == localForestry) return
+        val newLocality = Locality(
+            federalDistrict = currentLocality.federalDistrict,
+            region = currentLocality.region,
+            forestry = currentLocality.forestry,
+            localForestry = localForestry
+        )
+        _localityStateFlow.value = newLocality
     }
 
     fun updateSubForestry(subForestry: SubForestry?) {
-        val currentAddress = _addressStateFlow.value
-        if (currentAddress.subForestry == subForestry) return
-        val newAddress = currentAddress.copy(subForestry = subForestry, area = null)
-        _addressStateFlow.value = newAddress
+        val currentLocality = _localityStateFlow.value
+        if (currentLocality.subForestry == subForestry) return
+        val newLocality = Locality(
+            federalDistrict = currentLocality.federalDistrict,
+            region = currentLocality.region,
+            forestry = currentLocality.forestry,
+            localForestry = currentLocality.localForestry,
+            subForestry = subForestry,
+        )
+        _localityStateFlow.value = newLocality
     }
 
     fun updateArea(area: String?) {
-        val currentAddress = _addressStateFlow.value
-        if (currentAddress.area == area) return
-        val newAddress = currentAddress.copy(area = area)
-        _addressStateFlow.value = newAddress
+        val currentLocality = _localityStateFlow.value
+        if (currentLocality.area == area) return
+        val newLocality = Locality(
+            federalDistrict = currentLocality.federalDistrict,
+            region = currentLocality.region,
+            forestry = currentLocality.forestry,
+            localForestry = currentLocality.localForestry,
+            subForestry = currentLocality.subForestry,
+            area = area,
+        )
+        _localityStateFlow.value = newLocality
     }
 }

@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.kok1337.feature_ppn_description.api.AddressInMemoryRepository
+import com.kok1337.feature_ppn_description.di.LocalityInMemoryRepository
 import com.kok1337.feature_ppn_description.api.domain.module.*
-import com.kok1337.feature_ppn_description.api.presentation.fragment.PpnDescriptionFragment
+import com.kok1337.feature_ppn_description.presentation.fragment.PpnDescriptionFragment
 import com.kok1337.feature_ppn_description_sample.R
 import com.kok1337.feature_ppn_description_sample.app.App
 import com.kok1337.feature_ppn_description_sample.di.DaggerPpnDescriptionActivityComponent
 import com.kok1337.feature_ppn_description_sample.di.PpnDescriptionActivityDeps
 import com.kok1337.providing_dependencies.DepsMap
 import com.kok1337.providing_dependencies.HasDependencies
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 class FeaturePpnDescriptionActivity : AppCompatActivity(), HasDependencies {
@@ -28,7 +28,7 @@ class FeaturePpnDescriptionActivity : AppCompatActivity(), HasDependencies {
 
         Log.e("FeaturePpnDescriptionActivity", "DaggerPpnDescriptionActivityComponent")
         DaggerPpnDescriptionActivityComponent.factory()
-            .create(ppnDescriptionActivityDeps, AddressInMemoryRepositoryImpl())
+            .create(ppnDescriptionActivityDeps, LocalityInMemoryRepositoryImpl())
             .inject(this)
 
         super.onCreate(savedInstanceState)
@@ -40,9 +40,9 @@ class FeaturePpnDescriptionActivity : AppCompatActivity(), HasDependencies {
         }
     }
 
-    inner class AddressInMemoryRepositoryImpl() : AddressInMemoryRepository {
-        override fun getAddressFlow(): Flow<Address> {
-            return viewModel.addressFlow
+    inner class LocalityInMemoryRepositoryImpl : LocalityInMemoryRepository {
+        override fun getLocalityStateFlow(): StateFlow<Locality> {
+            return viewModel.localityStateFlow
         }
 
         override fun updateRegion(region: Region?) = viewModel.updateRegion(region)
