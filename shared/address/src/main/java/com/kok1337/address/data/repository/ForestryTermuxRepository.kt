@@ -1,7 +1,7 @@
 package com.kok1337.address.data.repository
 
-import com.kok1337.address.data.data_source.dao.ForestryDao
-import com.kok1337.address.data.data_source.dao.LocalityDao
+import com.kok1337.address.data.data_source.termux.dao.ForestryDao
+import com.kok1337.address.data.data_source.termux.dao.LocalityDao
 import com.kok1337.address.data.mapper.ForestryApiModelMapper
 import com.kok1337.address.domain.model.Forestry
 

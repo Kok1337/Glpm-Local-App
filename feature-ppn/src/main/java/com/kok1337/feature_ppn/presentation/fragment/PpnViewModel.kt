@@ -2,12 +2,19 @@ package com.kok1337.feature_ppn.presentation.fragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.kok1337.address.domain.model.*
+import com.kok1337.feature_ppn.domain.use_case.GetLocalityWithIdUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class PpnViewModel : ViewModel() {
+internal class PpnViewModel(
+    private val getLocalityWithIdUseCase: GetLocalityWithIdUseCase,
+) : ViewModel() {
     private val _localityStateFlow =
         MutableStateFlow(Locality(federalDistrict = FederalDistrict(5, "")))
     val localityStateFlow = _localityStateFlow.asStateFlow()
@@ -70,13 +77,24 @@ class PpnViewModel : ViewModel() {
             area = area,
         )
         _localityStateFlow.value = newLocality
+        getLocalityWithId()
     }
 
-    class Factory @Inject constructor() : ViewModelProvider.Factory {
+    private fun getLocalityWithId() = viewModelScope.launch(Dispatchers.IO) {
+        _localityStateFlow.update {
+            getLocalityWithIdUseCase(it)
+        }
+    }
+
+    class Factory @Inject constructor(
+        private val getLocalityWithIdUseCase: GetLocalityWithIdUseCase,
+    ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             require(modelClass == PpnViewModel::class.java)
-            return PpnViewModel() as T
+            return PpnViewModel(
+                getLocalityWithIdUseCase = getLocalityWithIdUseCase,
+            ) as T
         }
     }
 }

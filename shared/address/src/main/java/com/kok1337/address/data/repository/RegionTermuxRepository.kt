@@ -1,7 +1,7 @@
 package com.kok1337.address.data.repository
 
-import com.kok1337.address.data.data_source.dao.LocalityDao
-import com.kok1337.address.data.data_source.dao.RegionDao
+import com.kok1337.address.data.data_source.termux.dao.LocalityDao
+import com.kok1337.address.data.data_source.termux.dao.RegionDao
 import com.kok1337.address.data.mapper.RegionApiModelMapper
 import com.kok1337.address.domain.model.Region
 

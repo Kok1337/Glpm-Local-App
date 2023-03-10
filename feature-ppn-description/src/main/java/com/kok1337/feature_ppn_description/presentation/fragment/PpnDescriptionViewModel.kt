@@ -1,14 +1,14 @@
 package com.kok1337.feature_ppn_description.presentation.fragment
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kok1337.address.domain.model.*
 import com.kok1337.feature_ppn_description.domain.use_case.*
 import com.kok1337.feature_ppn_description.presentation.adapter.description_item_adapter.DescriptionItem
 import com.kok1337.feature_ppn_description.presentation.adapter.description_item_adapter.DescriptionItemTransformer
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.transform
+import com.kok1337.taxation.domain.model.TaxPreview
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 internal class PpnDescriptionViewModel(
@@ -17,19 +17,28 @@ internal class PpnDescriptionViewModel(
     private val enterLocalForestryUseCase: EnterLocalForestryUseCase,
     private val enterSubForestryUseCase: EnterSubForestryUseCase,
     private val enterAreaUseCase: EnterAreaUseCase,
+    private val enterTaxPreviewUseCase: EnterTaxPreviewUseCase,
 
     private val getAllRegionWithSearchUseCase: GetAllRegionWithSearchUseCase,
     private val getAllForestryWithSearchUseCase: GetAllForestryWithSearchUseCase,
     private val getAllLocalForestryWithSearchUseCase: GetAllLocalForestryWithSearchUseCase,
     private val getAllSubForestryWithSearchUseCase: GetAllSubForestryWithSearchUseCase,
+    private val getAllTaxPreviewUseCase: GetAllTaxPreviewUseCase,
 
     private val getObservableLocalityUseCase: GetObservableLocalityUseCase,
+    private val getObservableTaxUseCase: GetObservableTaxUseCase,
 ) : ViewModel() {
     private val _localityStateFlow = getObservableLocalityUseCase()
-    val descriptionItemListFlow: Flow<List<DescriptionItem>> =
-        _localityStateFlow.transform { locality ->
-            emit(DescriptionItemTransformer.transformToDescriptionItemList(locality))
-        }
+    private val _taxStateFlow = getObservableTaxUseCase()
+
+    val descriptionItemListFlow: Flow<List<DescriptionItem>> = combineTransform(
+        _localityStateFlow, _taxStateFlow,
+    ) { locality, tax ->
+        Log.e("PpnDescriptionViewModel", locality.toString())
+        val descriptionItemList =
+            DescriptionItemTransformer.transformToDescriptionItemList(locality, tax)
+        emit(descriptionItemList)
+    }
 
     fun updateRegion(region: Region?) = enterRegionUseCase(region)
 
@@ -62,19 +71,27 @@ internal class PpnDescriptionViewModel(
 
     fun updateArea(area: String?) = enterAreaUseCase(area)
 
+    suspend fun getAllTaxPreview(section: String): List<TaxPreview> {
+        val localityId = _localityStateFlow.value.id
+        return getAllTaxPreviewUseCase(localityId!!, section)
+    }
+
     class Factory @Inject constructor(
         private val enterRegionUseCase: EnterRegionUseCase,
         private val enterForestryUseCase: EnterForestryUseCase,
         private val enterLocalForestryUseCase: EnterLocalForestryUseCase,
         private val enterSubForestryUseCase: EnterSubForestryUseCase,
         private val enterAreaUseCase: EnterAreaUseCase,
+        private val enterTaxPreviewUseCase: EnterTaxPreviewUseCase,
 
         private val getAllRegionWithSearchUseCase: GetAllRegionWithSearchUseCase,
         private val getAllForestryWithSearchUseCase: GetAllForestryWithSearchUseCase,
         private val getAllLocalForestryWithSearchUseCase: GetAllLocalForestryWithSearchUseCase,
         private val getAllSubForestryWithSearchUseCase: GetAllSubForestryWithSearchUseCase,
+        private val getAllTaxPreviewUseCase: GetAllTaxPreviewUseCase,
 
         private val getObservableLocalityUseCase: GetObservableLocalityUseCase,
+        private val getObservableTaxUseCase: GetObservableTaxUseCase,
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -85,13 +102,16 @@ internal class PpnDescriptionViewModel(
                 enterLocalForestryUseCase = enterLocalForestryUseCase,
                 enterSubForestryUseCase = enterSubForestryUseCase,
                 enterAreaUseCase = enterAreaUseCase,
+                enterTaxPreviewUseCase = enterTaxPreviewUseCase,
 
                 getAllRegionWithSearchUseCase = getAllRegionWithSearchUseCase,
                 getAllForestryWithSearchUseCase = getAllForestryWithSearchUseCase,
                 getAllLocalForestryWithSearchUseCase = getAllLocalForestryWithSearchUseCase,
                 getAllSubForestryWithSearchUseCase = getAllSubForestryWithSearchUseCase,
+                getAllTaxPreviewUseCase = getAllTaxPreviewUseCase,
 
                 getObservableLocalityUseCase = getObservableLocalityUseCase,
+                getObservableTaxUseCase = getObservableTaxUseCase
             ) as T
         }
     }

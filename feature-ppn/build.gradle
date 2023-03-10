@@ -36,17 +36,17 @@ android {
 }
 
 dependencies {
-    implementation project(':core:ui')
-
-    implementation project(':shared:address')
-
     // Зависимости для предоставления
     api project(':core:termux-database')
-    api project(":core:providing-dependencies")
+
+    implementation project(':core:ui')
+    api project(':core:providing-dependencies')
     implementation project(':core:providing-dependencies-dagger')
 
-    implementation project(':feature-ppn-description')
+    implementation project(':shared:address')
+    implementation project(':shared:taxation')
 
+    implementation project(':feature-ppn-description')
 
     implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger_compiler"

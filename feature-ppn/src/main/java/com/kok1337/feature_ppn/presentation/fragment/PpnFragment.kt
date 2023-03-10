@@ -12,19 +12,24 @@ import com.kok1337.feature_ppn.R
 import com.kok1337.feature_ppn.databinding.FragmentPpnBinding
 import com.kok1337.feature_ppn.di.DaggerFeaturePpnFragmentComponent
 import com.kok1337.feature_ppn.presentation.adapter.PpnFragmentPagerAdapter
-import com.kok1337.feature_ppn_description.di.LocalityInMemoryRepository
+import com.kok1337.feature_ppn_description.data.repository.LocalityInMemoryRepository
+import com.kok1337.feature_ppn_description.data.repository.TaxInMemoryRepository
 import com.kok1337.providing_dependencies.DepsMap
 import com.kok1337.providing_dependencies.HasDependencies
 import com.kok1337.providing_dependencies.findDependencies
+import com.kok1337.taxation.domain.model.Tax
+import com.kok1337.taxation.domain.model.TaxPreview
 import dagger.Lazy
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
 class PpnFragment : Fragment(R.layout.fragment_ppn), HasDependencies {
     private val binding by viewBinding(FragmentPpnBinding::bind)
 
     @Inject
-    lateinit var viewModelFactory: Lazy<PpnViewModel.Factory>
+    internal lateinit var viewModelFactory: Lazy<PpnViewModel.Factory>
     private val viewModel: PpnViewModel by viewModels {
         viewModelFactory.get()
     }
@@ -37,7 +42,8 @@ class PpnFragment : Fragment(R.layout.fragment_ppn), HasDependencies {
         DaggerFeaturePpnFragmentComponent.factory()
             .create(
                 featurePpnFragmentDeps = findDependencies(),
-                localityInMemoryRepository = LocalityInMemoryRepositoryImpl()
+                localityInMemoryRepository = LocalityInMemoryRepositoryImpl(),
+                taxInMemoryRepository = TaxInMemoryRepositoryImpl()
             ).inject(this)
     }
 
@@ -76,5 +82,15 @@ class PpnFragment : Fragment(R.layout.fragment_ppn), HasDependencies {
             viewModel.updateSubForestry(subForestry)
 
         override fun updateArea(area: String?) = viewModel.updateArea(area)
+    }
+
+    inner class TaxInMemoryRepositoryImpl : TaxInMemoryRepository {
+        override fun getTaxStateFlow(): StateFlow<Tax?> {
+            return MutableStateFlow<Tax?>(null)
+        }
+
+        override fun enterTaxPreview(taxPreview: TaxPreview) {
+            TODO("Not yet implemented")
+        }
     }
 }

@@ -1,0 +1,111 @@
+package com.kok1337.taxation.data.data_source.termux.table
+
+import com.kok1337.taxation.data.model.TaxApiModel
+import org.ktorm.dsl.QueryRowSet
+import org.ktorm.schema.*
+
+internal object TaxTable : BaseTable<TaxApiModel>("info_tax", schema = "public") {
+    val id = uuid("id").primaryKey()
+    val localityId = uuid("locality_id")
+    val section = text("section")
+    val forestPurposeId = int("forest_purpose_id")
+    val protectionCategoryId = int("protection_category_id")
+    val ozuId = int("ozu_id")
+    val ooptId = int("oopt_id")
+    val isWaterProtectionZone = boolean("is_water_protection_zone")
+    val tenant = text("tenant")
+    val leaseContractNum = text("lease_contract_num")
+    val leaseContractDate = date("lease_contract_date")
+    val leaseTypeId = int("lease_type_id")
+    val cadastralNum = text("cadastral_num")
+    val firePrescription = int("fire_prescription")
+    val forestUseId = int("forest_use_id")
+    val s = double("s")
+    val forestInventoryYear = int("forest_inventory_year")
+    val forestType = text("forest_type")
+    val tluId = int("tlu_id")
+    val landCatId = int("land_cat_id")
+    val bonitetId = int("bonitet_id")
+    val underwood = text("underwood")
+    val isNatural = boolean("is_natural")
+    val leaseContractTypeId = int("lease_contract_type_id")
+    val forestZoneId = int("forest_zone_id")
+    val isArtificial = boolean("is_artificial")
+    val plantingYear = int("planting_year")
+    val isAfterTapping = boolean("is_after_tapping")
+    val tabZoneId = int("tab_zone_id")
+    val tlu = text("tlu")
+    val isDrained = boolean("is_drained")
+    val ageGroupId = int("age_group_id")
+    val isFireBurned = boolean("is_fire_burned")
+    val radioactiveZoneId = int("radioactive_zone_id")
+    val stockDead = double("stock_dead")
+    val stockOpenStand = double("stock_open_stand")
+    val stockSingleTree = double("stock_single_tree")
+    val stockFellingDebris = double("stock_felling_debris")
+    val stockLiquidDebris = double("stock_liquid_debris")
+    val nonForestLandId = int("non_forest_land_id")
+    val unforestedLandId = int("unforested_land_id")
+    val isDraft = boolean("is_draft")
+    val dataSourceId = int("data_source_id")
+    val isNewDead = boolean("is_new_dead")
+    val oopt = text("oopt")
+    val ozu = text("ozu")
+    val forestUse = text("forest_use")
+    val stockSection = double("stock_section")
+
+    val userId = int("user_id")
+    val modificationDate = timestamp("modification_date")
+    val isDeleted = boolean("is_deleted")
+    override fun doCreateEntity(row: QueryRowSet, withReferences: Boolean): TaxApiModel =
+        TaxApiModel(
+            id = row[id]!!,
+            localityId = row[localityId]!!,
+            section = row[section]!!,
+            forestPurposeId = row[forestPurposeId],
+            protectionCategoryId = row[protectionCategoryId],
+            ozuId = row[ozuId],
+            ooptId = row[ooptId],
+            isWaterProtectionZone = row[isWaterProtectionZone],
+            tenant = row[tenant],
+            leaseContractNum = row[leaseContractNum],
+            leaseContractDate = row[leaseContractDate],
+            leaseTypeId = row[leaseTypeId],
+            cadastralNum = row[cadastralNum],
+            firePrescription = row[firePrescription],
+            forestUseId = row[forestUseId],
+            s = row[s],
+            forestInventoryYear = row[forestInventoryYear],
+            forestType = row[forestType],
+            tluId = row[tluId],
+            landCatId = row[landCatId],
+            bonitetId = row[bonitetId],
+            underwood = row[underwood],
+            isNatural = row[isNatural],
+            leaseContractTypeId = row[leaseContractTypeId],
+            forestZoneId = row[forestZoneId],
+            isArtificial = row[isArtificial],
+            plantingYear = row[plantingYear],
+            isAfterTapping = row[isAfterTapping],
+            tabZoneId = row[tabZoneId],
+            tlu = row[tlu],
+            isDrained = row[isDrained],
+            ageGroupId = row[ageGroupId],
+            isFireBurned = row[isFireBurned],
+            radioactiveZoneId = row[radioactiveZoneId],
+            stockDead = row[stockDead],
+            stockOpenStand = row[stockOpenStand],
+            stockSingleTree = row[stockSingleTree],
+            stockFellingDebris = row[stockFellingDebris],
+            stockLiquidDebris = row[stockLiquidDebris],
+            nonForestLandId = row[nonForestLandId],
+            unforestedLandId = row[unforestedLandId],
+            isDraft = row[isDraft] ?: false,
+            dataSourceId = row[dataSourceId],
+            isNewDead = row[isNewDead],
+            oopt = row[oopt],
+            ozu = row[ozu],
+            forestUse = row[forestUse],
+            stockSection = row[stockSection],
+        )
+}

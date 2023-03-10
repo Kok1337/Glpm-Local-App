@@ -36,25 +36,21 @@ android {
 }
 
 dependencies {
+    // Зависимости для предоставления
     api project(':shared:address')
+    api project(':shared:taxation')
 
     implementation project(':core:ui')
-    api project(':core:utils:result')
-
     api project(":core:providing-dependencies")
-
-    implementation "com.google.dagger:dagger:$dagger"
-    kapt "com.google.dagger:dagger-compiler:$dagger_compiler"
-
     implementation project(':core:utils:extensions')
     implementation project(':core:searchable-spinner')
     implementation project(':core:dialog')
-
-    api 'org.ktorm:ktorm-core:3.6.0'
-    api 'org.ktorm:ktorm-support-postgresql:3.6.0'
+    implementation project(':core:utils:common-diff-callback')
 
     implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2'
-    implementation project(':core:utils:common-diff-callback')
+
+    implementation "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger_compiler"
 
     // Base implementation
     implementation "androidx.core:core-ktx:$core_ktx"

@@ -25,42 +25,14 @@
             <option value="$PROJECT_DIR$/core/utils/common-diff-callback" />
             <option value="$PROJECT_DIR$/core/utils/extensions" />
             <option value="$PROJECT_DIR$/core/utils/result" />
-            <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/age_group" />
-            <option value="$PROJECT_DIR$/data/bonitet" />
-            <option value="$PROJECT_DIR$/data/dictionary" />
-            <option value="$PROJECT_DIR$/data/forest_purpose" />
-            <option value="$PROJECT_DIR$/data/land" />
-            <option value="$PROJECT_DIR$/data/non_forest_land" />
-            <option value="$PROJECT_DIR$/data/ozu" />
-            <option value="$PROJECT_DIR$/data/protection_category" />
-            <option value="$PROJECT_DIR$/data/species" />
-            <option value="$PROJECT_DIR$/data/tax" />
-            <option value="$PROJECT_DIR$/data/tax-layer" />
-            <option value="$PROJECT_DIR$/data/tax-layer-species" />
-            <option value="$PROJECT_DIR$/data/unforested_land" />
-            <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/domain/address" />
-            <option value="$PROJECT_DIR$/domain/age_group" />
-            <option value="$PROJECT_DIR$/domain/bonitet" />
-            <option value="$PROJECT_DIR$/domain/forest_purpose" />
-            <option value="$PROJECT_DIR$/domain/land" />
-            <option value="$PROJECT_DIR$/domain/non_forest_land" />
-            <option value="$PROJECT_DIR$/domain/ozu" />
-            <option value="$PROJECT_DIR$/domain/protection_category" />
-            <option value="$PROJECT_DIR$/domain/species" />
-            <option value="$PROJECT_DIR$/domain/tax" />
-            <option value="$PROJECT_DIR$/domain/tax-layer" />
-            <option value="$PROJECT_DIR$/domain/tax-layer-species" />
-            <option value="$PROJECT_DIR$/domain/unforested_land" />
             <option value="$PROJECT_DIR$/feature-ppn" />
             <option value="$PROJECT_DIR$/feature-ppn-description" />
-            <option value="$PROJECT_DIR$/feature-ppn-description/feature-ppn-description-sample" />
             <option value="$PROJECT_DIR$/feature-ppn-taxation" />
-            <option value="$PROJECT_DIR$/feature-ppn-taxation/feature-ppn-taxation-sample" />
             <option value="$PROJECT_DIR$/feature-ppn/feature-ppn-sample" />
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/shared/address" />
+            <option value="$PROJECT_DIR$/shared/species" />
+            <option value="$PROJECT_DIR$/shared/taxation" />
           </set>
         </option>
       </GradleProjectSettings>

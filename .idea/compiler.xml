@@ -16,7 +16,84 @@
       <module name="GLPM-Local.core.result" target="1.8" />
       <module name="GLPM-Local.core.result.main" target="1.8" />
       <module name="GLPM-Local.core.result.test" target="1.8" />
+      <module name="GLPM-Local.data.age_group" target="1.8" />
+      <module name="GLPM-Local.data.age_group.main" target="1.8" />
+      <module name="GLPM-Local.data.age_group.test" target="1.8" />
+      <module name="GLPM-Local.data.bonitet" target="1.8" />
+      <module name="GLPM-Local.data.bonitet.main" target="1.8" />
+      <module name="GLPM-Local.data.bonitet.test" target="1.8" />
+      <module name="GLPM-Local.data.dictionary" target="1.8" />
+      <module name="GLPM-Local.data.dictionary.main" target="1.8" />
+      <module name="GLPM-Local.data.dictionary.test" target="1.8" />
+      <module name="GLPM-Local.data.forest_purpose" target="1.8" />
+      <module name="GLPM-Local.data.forest_purpose.main" target="1.8" />
+      <module name="GLPM-Local.data.forest_purpose.test" target="1.8" />
+      <module name="GLPM-Local.data.land" target="1.8" />
+      <module name="GLPM-Local.data.land.main" target="1.8" />
+      <module name="GLPM-Local.data.land.test" target="1.8" />
+      <module name="GLPM-Local.data.non_forest_land" target="1.8" />
+      <module name="GLPM-Local.data.non_forest_land.main" target="1.8" />
+      <module name="GLPM-Local.data.non_forest_land.test" target="1.8" />
+      <module name="GLPM-Local.data.ozu" target="1.8" />
+      <module name="GLPM-Local.data.ozu.main" target="1.8" />
+      <module name="GLPM-Local.data.ozu.test" target="1.8" />
+      <module name="GLPM-Local.data.protection_category" target="1.8" />
+      <module name="GLPM-Local.data.protection_category.main" target="1.8" />
+      <module name="GLPM-Local.data.protection_category.test" target="1.8" />
+      <module name="GLPM-Local.data.species" target="1.8" />
+      <module name="GLPM-Local.data.species.main" target="1.8" />
+      <module name="GLPM-Local.data.species.test" target="1.8" />
+      <module name="GLPM-Local.data.tax" target="1.8" />
+      <module name="GLPM-Local.data.tax-layer" target="1.8" />
+      <module name="GLPM-Local.data.tax-layer-species" target="1.8" />
+      <module name="GLPM-Local.data.tax-layer-species.main" target="1.8" />
+      <module name="GLPM-Local.data.tax-layer-species.test" target="1.8" />
+      <module name="GLPM-Local.data.tax-layer.main" target="1.8" />
+      <module name="GLPM-Local.data.tax-layer.test" target="1.8" />
+      <module name="GLPM-Local.data.tax.main" target="1.8" />
+      <module name="GLPM-Local.data.tax.test" target="1.8" />
+      <module name="GLPM-Local.data.unforested_land" target="1.8" />
+      <module name="GLPM-Local.data.unforested_land.main" target="1.8" />
+      <module name="GLPM-Local.data.unforested_land.test" target="1.8" />
+      <module name="GLPM-Local.domain.age_group" target="1.8" />
+      <module name="GLPM-Local.domain.age_group.main" target="1.8" />
+      <module name="GLPM-Local.domain.age_group.test" target="1.8" />
+      <module name="GLPM-Local.domain.bonitet" target="1.8" />
+      <module name="GLPM-Local.domain.bonitet.main" target="1.8" />
+      <module name="GLPM-Local.domain.bonitet.test" target="1.8" />
+      <module name="GLPM-Local.domain.forest_purpose" target="1.8" />
+      <module name="GLPM-Local.domain.forest_purpose.main" target="1.8" />
+      <module name="GLPM-Local.domain.forest_purpose.test" target="1.8" />
+      <module name="GLPM-Local.domain.land" target="1.8" />
+      <module name="GLPM-Local.domain.land.main" target="1.8" />
+      <module name="GLPM-Local.domain.land.test" target="1.8" />
+      <module name="GLPM-Local.domain.non_forest_land" target="1.8" />
+      <module name="GLPM-Local.domain.non_forest_land.main" target="1.8" />
+      <module name="GLPM-Local.domain.non_forest_land.test" target="1.8" />
+      <module name="GLPM-Local.domain.ozu" target="1.8" />
+      <module name="GLPM-Local.domain.ozu.main" target="1.8" />
+      <module name="GLPM-Local.domain.ozu.test" target="1.8" />
+      <module name="GLPM-Local.domain.protection_category" target="1.8" />
+      <module name="GLPM-Local.domain.protection_category.main" target="1.8" />
+      <module name="GLPM-Local.domain.protection_category.test" target="1.8" />
+      <module name="GLPM-Local.domain.species" target="1.8" />
+      <module name="GLPM-Local.domain.species.main" target="1.8" />
+      <module name="GLPM-Local.domain.species.test" target="1.8" />
+      <module name="GLPM-Local.domain.tax" target="1.8" />
+      <module name="GLPM-Local.domain.tax-layer" target="1.8" />
+      <module name="GLPM-Local.domain.tax-layer-species" target="1.8" />
+      <module name="GLPM-Local.domain.tax-layer-species.main" target="1.8" />
+      <module name="GLPM-Local.domain.tax-layer-species.test" target="1.8" />
+      <module name="GLPM-Local.domain.tax-layer.main" target="1.8" />
+      <module name="GLPM-Local.domain.tax-layer.test" target="1.8" />
+      <module name="GLPM-Local.domain.tax.main" target="1.8" />
+      <module name="GLPM-Local.domain.tax.test" target="1.8" />
+      <module name="GLPM-Local.domain.unforested_land" target="1.8" />
+      <module name="GLPM-Local.domain.unforested_land.main" target="1.8" />
+      <module name="GLPM-Local.domain.unforested_land.test" target="1.8" />
+      <module name="GLPM-Local.feature-ppn-description.feature-ppn-description-sample" target="16" />
       <module name="GLPM-Local.feature-ppn-taxation.feature-ppn-description-sample" target="16" />
+      <module name="GLPM-Local.feature-ppn-taxation.feature-ppn-taxation-sample" target="16" />
       <module name="GLPM-Local.presentation.age_group" target="16" />
       <module name="GLPM-Local.presentation.bonitet" target="16" />
     </bytecodeTargetLevel>

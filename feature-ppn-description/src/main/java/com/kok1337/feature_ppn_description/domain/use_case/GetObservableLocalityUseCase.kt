@@ -1,7 +1,7 @@
 package com.kok1337.feature_ppn_description.domain.use_case
 
 import com.kok1337.address.domain.model.Locality
-import com.kok1337.feature_ppn_description.di.LocalityInMemoryRepository
+import com.kok1337.feature_ppn_description.data.repository.LocalityInMemoryRepository
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 

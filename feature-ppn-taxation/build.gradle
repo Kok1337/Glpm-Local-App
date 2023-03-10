@@ -36,14 +36,20 @@ android {
 }
 
 dependencies {
-    api project(':domain:tax')
-    api project(':core:ui')
+    // Зависимости для предоставления
+    api project(':shared:taxation')
 
+    implementation project(':core:ui')
     api project(':core:providing-dependencies')
-    api project(':domain:land')
-
     implementation project(':core:utils:extensions')
     implementation project(':core:utils:common-diff-callback')
+
+//    api project(':domain:land')
+    
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2'
+
+    implementation "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger_compiler"
 
     // Base implementation
     implementation "androidx.core:core-ktx:$core_ktx"
@@ -59,12 +65,6 @@ dependencies {
     // Reflection-based flavor
     implementation "com.github.kirich1409:viewbindingpropertydelegate:$viewbindingpropertydelegate"
     implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$viewbindingpropertydelegate"
-
-    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2'
-
-    implementation "com.google.dagger:dagger:$dagger"
-    kapt "com.google.dagger:dagger-compiler:$dagger_compiler"
-
 
     // Test
     testImplementation "junit:junit:$junit"

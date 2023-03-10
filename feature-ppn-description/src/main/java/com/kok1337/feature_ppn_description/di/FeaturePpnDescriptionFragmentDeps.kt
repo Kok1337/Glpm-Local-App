@@ -1,9 +1,10 @@
 package com.kok1337.feature_ppn_description.di
 
 import com.kok1337.address.data.repository.*
-import com.kok1337.address.domain.model.*
+import com.kok1337.feature_ppn_description.data.repository.LocalityInMemoryRepository
+import com.kok1337.feature_ppn_description.data.repository.TaxInMemoryRepository
 import com.kok1337.providing_dependencies.Dependencies
-import kotlinx.coroutines.flow.StateFlow
+import com.kok1337.taxation.data.repository.TaxPreviewTermuxRepository
 
 interface FeaturePpnDescriptionFragmentDeps : Dependencies {
     val federalDistrictTermuxRepository: FederalDistrictTermuxRepository
@@ -11,14 +12,7 @@ interface FeaturePpnDescriptionFragmentDeps : Dependencies {
     val forestryTermuxRepository: ForestryTermuxRepository
     val localForestryTermuxRepository: LocalForestryTermuxRepository
     val subForestryTermuxRepository: SubForestryTermuxRepository
+    val taxPreviewTermuxRepository: TaxPreviewTermuxRepository
     val localityInMemoryRepository: LocalityInMemoryRepository
-}
-
-interface LocalityInMemoryRepository {
-    fun getLocalityStateFlow(): StateFlow<Locality>
-    fun updateRegion(region: Region?)
-    fun updateForestry(forestry: Forestry?)
-    fun updateLocalForestry(localForestry: LocalForestry?)
-    fun updateSubForestry(subForestry: SubForestry?)
-    fun updateArea(area: String?)
+    val taxInMemoryRepository: TaxInMemoryRepository
 }

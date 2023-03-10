@@ -1,6 +1,6 @@
 package com.kok1337.feature_ppn.di.module
 
-import com.kok1337.address.data.data_source.dao.*
+import com.kok1337.address.data.data_source.termux.dao.*
 import com.kok1337.address.data.repository.*
 import com.kok1337.feature_ppn.di.FeaturePpnFragmentScope
 import com.kok1337.termux_database.api.DatabaseFactory
@@ -94,5 +94,22 @@ internal object AddressRepositoryModule {
     ): SubForestryTermuxRepository = SubForestryTermuxRepository(
         subForestryDao = subForestryDao,
         localityDao = localityDao,
+    )
+
+    @[FeaturePpnFragmentScope Provides]
+    fun localityTermuxRepository(
+        localityDao: LocalityDao,
+        federalDistrictTermuxRepository: FederalDistrictTermuxRepository,
+        regionTermuxRepository: RegionTermuxRepository,
+        forestryTermuxRepository: ForestryTermuxRepository,
+        localForestryTermuxRepository: LocalForestryTermuxRepository,
+        subForestryTermuxRepository: SubForestryTermuxRepository,
+    ): LocalityTermuxRepository = LocalityTermuxRepository(
+        localityDao = localityDao,
+        federalDistrictTermuxRepository = federalDistrictTermuxRepository,
+        regionTermuxRepository = regionTermuxRepository,
+        forestryTermuxRepository = forestryTermuxRepository,
+        localForestryTermuxRepository = localForestryTermuxRepository,
+        subForestryTermuxRepository = subForestryTermuxRepository,
     )
 }

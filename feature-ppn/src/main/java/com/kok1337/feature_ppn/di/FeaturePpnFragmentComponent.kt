@@ -2,9 +2,11 @@ package com.kok1337.feature_ppn.di
 
 import com.kok1337.feature_ppn.di.module.AddressRepositoryModule
 import com.kok1337.feature_ppn.di.module.FeaturePpnDescriptionFragmentDepsModule
+import com.kok1337.feature_ppn.di.module.TaxationRepositoryModule
 import com.kok1337.feature_ppn.presentation.fragment.PpnFragment
+import com.kok1337.feature_ppn_description.data.repository.LocalityInMemoryRepository
+import com.kok1337.feature_ppn_description.data.repository.TaxInMemoryRepository
 import com.kok1337.feature_ppn_description.di.FeaturePpnDescriptionFragmentDeps
-import com.kok1337.feature_ppn_description.di.LocalityInMemoryRepository
 import dagger.BindsInstance
 import dagger.Component
 
@@ -12,6 +14,7 @@ import dagger.Component
     dependencies = [FeaturePpnFragmentDeps::class],
     modules = [
         AddressRepositoryModule::class,
+        TaxationRepositoryModule::class,
         FeaturePpnDescriptionFragmentDepsModule::class,
     ]
 )]
@@ -21,6 +24,7 @@ internal interface FeaturePpnFragmentComponent : FeaturePpnDescriptionFragmentDe
         fun create(
             featurePpnFragmentDeps: FeaturePpnFragmentDeps,
             @BindsInstance localityInMemoryRepository: LocalityInMemoryRepository,
+            @BindsInstance taxInMemoryRepository: TaxInMemoryRepository,
         ): FeaturePpnFragmentComponent
     }
 
