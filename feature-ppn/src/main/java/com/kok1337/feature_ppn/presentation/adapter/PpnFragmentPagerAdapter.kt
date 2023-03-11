@@ -1,15 +1,16 @@
 package com.kok1337.feature_ppn.presentation.adapter
 
+import android.annotation.SuppressLint
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.kok1337.feature_ppn.presentation.Blank1Fragment
-import com.kok1337.feature_ppn.presentation.Blank2Fragment
 import com.kok1337.feature_ppn.presentation.fragment.PpnFragment
 import com.kok1337.feature_ppn_description.presentation.fragment.PpnDescriptionFragment
+import com.kok1337.feature_ppn_taxation.presentation.fragment.PpnTaxationFragment
 
 internal class PpnFragmentPagerAdapter(ppnFragment: PpnFragment) :
     FragmentStateAdapter(ppnFragment) {
     var isTaxEnabled: Boolean = false
+        @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -19,7 +20,7 @@ internal class PpnFragmentPagerAdapter(ppnFragment: PpnFragment) :
 
     override fun createFragment(position: Int): Fragment = when (position) {
         0 -> PpnDescriptionFragment()
-        1 -> Blank2Fragment()
+        1 -> PpnTaxationFragment()
         else -> throw IllegalStateException()
     }
 }

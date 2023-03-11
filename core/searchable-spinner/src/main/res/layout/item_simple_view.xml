@@ -5,6 +5,6 @@
         style="@style/Widget.GlpmLocal.TextView"
         android:layout_marginVertical="@dimen/item_vertical_half_padding"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:textSize="@dimen/big_text_size" />
 </layout>

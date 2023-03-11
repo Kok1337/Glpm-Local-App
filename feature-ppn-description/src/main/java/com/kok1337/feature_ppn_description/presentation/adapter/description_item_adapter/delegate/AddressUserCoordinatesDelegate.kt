@@ -42,12 +42,20 @@ internal class AddressUserCoordinatesDelegate(
         binding.subjectSpinner.setOnClickListener {
             addressUserCoordinatesListener.onRegionClick(region)
         }
+        binding.subjectSpinner.setOnLongClickListener {
+            addressUserCoordinatesListener.onRegionLongClick(region)
+            true
+        }
 
         val forestry = item.forestry
         binding.forestrySpinner.text = forestry?.name ?: ""
         binding.forestrySpinner.isEnabled = region != null
         binding.forestrySpinner.setOnClickListener {
             addressUserCoordinatesListener.onForestryClick(forestry)
+        }
+        binding.forestrySpinner.setOnLongClickListener {
+            addressUserCoordinatesListener.onForestryLongClick(forestry)
+            true
         }
 
         val localForestry = item.localForestry
@@ -56,12 +64,20 @@ internal class AddressUserCoordinatesDelegate(
         binding.localForestrySpinner.setOnClickListener {
             addressUserCoordinatesListener.onLocalForestryClick(localForestry)
         }
+        binding.localForestrySpinner.setOnLongClickListener {
+            addressUserCoordinatesListener.onLocalForestryLongClick(localForestry)
+            true
+        }
 
         val subForestry = item.subForestry
         binding.subForestrySpinner.text = subForestry?.name ?: ""
         binding.subForestrySpinner.isEnabled = localForestry != null
         binding.subForestrySpinner.setOnClickListener {
             addressUserCoordinatesListener.onSubForestryClick(subForestry)
+        }
+        binding.subForestrySpinner.setOnLongClickListener {
+            addressUserCoordinatesListener.onSubForestryLongClick(subForestry)
+            true
         }
 
         val area = item.area
@@ -70,5 +86,26 @@ internal class AddressUserCoordinatesDelegate(
         binding.areaEditText.setOnClickListener {
             addressUserCoordinatesListener.onAreaClick(area)
         }
+        binding.areaEditText.setOnLongClickListener {
+            addressUserCoordinatesListener.onAreaLongClick(area)
+            true
+        }
+
+        val section = item.section
+        binding.sectionEditText.isEnabled = item.isFullLocality
+        binding.sectionEditText.text = section ?: ""
+        binding.sectionEditText.setOnClickListener {
+            addressUserCoordinatesListener.onSectionClick(section)
+        }
+        binding.sectionEditText.setOnLongClickListener {
+            addressUserCoordinatesListener.onSectionLongClick(section)
+            true
+        }
+
+        val s = item.s
+        binding.sEditText.isEnabled = false
+        binding.sEditText.text = s?.toString() ?: ""
+
+        binding.lpSectionEditText.isEnabled = false
     }
 }

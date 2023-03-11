@@ -1,12 +1,12 @@
 package com.kok1337.feature_ppn_description.domain.use_case
 
-import com.kok1337.feature_ppn_description.data.repository.LocalityInMemoryRepository
+import com.kok1337.feature_ppn_description.data.repository.DescriptionLocalityInMemoryRepository
 import javax.inject.Inject
 
 internal class EnterAreaUseCase @Inject constructor(
-    private val localityInMemoryRepository: LocalityInMemoryRepository,
+    private val descriptionLocalityInMemoryRepository: DescriptionLocalityInMemoryRepository,
 ) {
     operator fun invoke(area: String?) {
-        localityInMemoryRepository.updateArea(area)
+        descriptionLocalityInMemoryRepository.updateArea(area)
     }
 }

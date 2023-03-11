@@ -14,7 +14,8 @@ internal object DescriptionItemTransformer {
             subForestry = locality.subForestry,
             area = locality.area,
             section = tax?.section,
-            s = tax?.s
+            s = tax?.s,
+            isFullLocality = locality.id != null
         )
         return listOf(addressUserCoordinatesItem)
     }

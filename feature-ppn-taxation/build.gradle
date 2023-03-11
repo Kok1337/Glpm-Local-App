@@ -42,9 +42,9 @@ dependencies {
     implementation project(':core:ui')
     api project(':core:providing-dependencies')
     implementation project(':core:utils:extensions')
+    implementation project(':core:searchable-spinner')
+    implementation project(':core:dialog')
     implementation project(':core:utils:common-diff-callback')
-
-//    api project(':domain:land')
     
     implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2'
 

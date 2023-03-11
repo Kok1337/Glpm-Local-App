@@ -10,6 +10,7 @@ internal data class AddressUserCoordinatesItem(
     val localForestry: LocalForestry?,
     val subForestry: SubForestry?,
     val area: String?,
+    val isFullLocality: Boolean,
     val section: String?,
     val s: Double?
 ) : DescriptionItem

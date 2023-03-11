@@ -16,10 +16,7 @@ import com.kok1337.feature_ppn_description.databinding.FragmentPpnDescriptionBin
 import com.kok1337.feature_ppn_description.di.DaggerFeaturePpnDescriptionFragmentComponent
 import com.kok1337.feature_ppn_description.presentation.adapter.description_item_adapter.DescriptionItemAdapter
 import com.kok1337.feature_ppn_description.presentation.adapter.description_item_adapter.listener.AdapterListener
-import com.kok1337.feature_ppn_description.presentation.dialog.ForestrySearchableSpinnerDialog
-import com.kok1337.feature_ppn_description.presentation.dialog.LocalForestrySearchableSpinnerDialog
-import com.kok1337.feature_ppn_description.presentation.dialog.RegionSearchableSpinnerDialog
-import com.kok1337.feature_ppn_description.presentation.dialog.SubForestrySearchableSpinnerDialog
+import com.kok1337.feature_ppn_description.presentation.dialog.*
 import com.kok1337.providing_dependencies.findDependencies
 import com.kok1337.searchable_spinner.domain.model.SortType
 import com.kok1337.searchable_spinner.domain.repository.SearchableSpinnerRepository
@@ -58,42 +55,33 @@ class PpnDescriptionFragment : Fragment(R.layout.fragment_ppn_description), Adap
 
     override fun onFederalDistrictClick(federalDistrict: FederalDistrict?) {}
     override fun onFederalDistrictLongClick(federalDistrict: FederalDistrict?) {
-        TODO("Not yet implemented")
     }
 
     override fun onRegionClick(region: Region?) = openRegionDialog(region)
     override fun onRegionLongClick(region: Region?) {
-        TODO("Not yet implemented")
     }
 
     override fun onForestryClick(forestry: Forestry?) = openForestryDialog(forestry)
     override fun onForestryLongClick(forestry: Forestry?) {
-        TODO("Not yet implemented")
     }
 
     override fun onLocalForestryClick(localForestry: LocalForestry?) =
         openLocalForestryDialog(localForestry)
 
     override fun onLocalForestryLongClick(localForestry: LocalForestry?) {
-        TODO("Not yet implemented")
     }
 
     override fun onSubForestryClick(subForestry: SubForestry?) = openSubForestryDialog(subForestry)
     override fun onSubForestryLongClick(subForestry: SubForestry?) {
-        TODO("Not yet implemented")
     }
 
     override fun onAreaClick(area: String?) = openAreaDialog(area)
     override fun onAreaLongClick(area: String?) {
-        TODO("Not yet implemented")
     }
 
-    override fun onSectionClick(section: String?) {
-        TODO("Not yet implemented")
-    }
+    override fun onSectionClick(section: String?) = openSectionDialog(section)
 
     override fun onSectionLongClick(section: String?) {
-        TODO("Not yet implemented")
     }
 
     inner class RegionSearchableSpinnerRepository : SearchableSpinnerRepository<Region> {
@@ -161,6 +149,24 @@ class PpnDescriptionFragment : Fragment(R.layout.fragment_ppn_description), Adap
     private fun openAreaDialog(area: String?) {
         val dialog = InputStringDialog(title = "Введите Квартал", startValue = area) { newArea ->
             viewModel.updateArea(newArea)
+        }
+        showDialog(dialog, requireContext())
+    }
+
+    private fun openSectionDialog(section: String?) {
+        val dialog =
+            InputStringDialog(title = "Введите Выдел", startValue = section, ) { newSection ->
+                if (newSection != null) openTaxPreviewDialog(newSection)
+            }
+        showDialog(dialog, requireContext())
+    }
+
+    private fun openTaxPreviewDialog(section: String) {
+        val repository = SearchableSpinnerRepository { _, _ ->
+            viewModel.getAllTaxPreview(section)
+        }
+        val dialog = TaxPreviewSearchableSpinnerDialog(repository) { taxPreview ->
+            taxPreview?.let { viewModel.enterTaxPreview(it) }
         }
         showDialog(dialog, requireContext())
     }

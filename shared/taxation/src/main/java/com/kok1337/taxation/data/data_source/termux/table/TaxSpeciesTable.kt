@@ -5,7 +5,7 @@ import org.ktorm.dsl.QueryRowSet
 import org.ktorm.schema.*
 
 internal object TaxSpeciesTable :
-    BaseTable<TaxSpeciesApiModel>("info_tax_layer", schema = "public") {
+    BaseTable<TaxSpeciesApiModel>("info_tax_layer_species", schema = "public") {
     val id = uuid("id").primaryKey()
     val parentId = uuid("parent_id")
     val speciesId = int("species_id")

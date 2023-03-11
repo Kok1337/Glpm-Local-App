@@ -191,4 +191,7 @@ object TaxationRepositoryModule {
     ): UnforestedLandTermuxRepository = UnforestedLandTermuxRepository(
         unforestedLandDao = unforestedLandDao,
     )
+
+    @[FeaturePpnFragmentScope Provides]
+    fun landFixedRepository(): LandFixedRepository = LandFixedRepository()
 }

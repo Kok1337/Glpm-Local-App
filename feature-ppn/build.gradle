@@ -47,6 +47,7 @@ dependencies {
     implementation project(':shared:taxation')
 
     implementation project(':feature-ppn-description')
+    implementation project(':feature-ppn-taxation')
 
     implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger_compiler"

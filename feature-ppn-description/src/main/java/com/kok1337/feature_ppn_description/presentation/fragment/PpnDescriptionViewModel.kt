@@ -76,6 +76,8 @@ internal class PpnDescriptionViewModel(
         return getAllTaxPreviewUseCase(localityId!!, section)
     }
 
+    fun enterTaxPreview(taxPreview: TaxPreview) = enterTaxPreviewUseCase(taxPreview)
+
     class Factory @Inject constructor(
         private val enterRegionUseCase: EnterRegionUseCase,
         private val enterForestryUseCase: EnterForestryUseCase,
