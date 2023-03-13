@@ -5,6 +5,7 @@ import java.util.*
 
 internal interface TaxSpeciesListener {
     fun onSpeciesClick(taxLayerSpeciesId: UUID, species: Species?)
+    fun onSpeciesLongClick(species: Species?)
     fun onCoeffClick(taxLayerSpeciesId: UUID, coeff: Int?)
     fun onAgeClick(taxLayerSpeciesId: UUID, age: Int?)
     fun onTaxLayerSpeciesHeightClick(taxLayerSpeciesId: UUID, height: Int?)

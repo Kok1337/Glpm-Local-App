@@ -4,11 +4,12 @@ import com.kok1337.taxation.domain.model.AgeGroup
 import java.util.*
 
 internal interface TaxLayerListener {
+    fun onCompositionLongClick(composition: String)
     fun onTaxLayerHeightClick(taxLayerId: UUID, height: Int?)
     fun onAgeClassClick(taxLayerId: UUID, ageClass: Int?)
     fun onAgeGroupClick(taxLayerId: UUID, ageGroup: AgeGroup?)
+    fun onAgeGroupLongClick(ageGroup: AgeGroup?)
     fun onFullnessClick(taxLayerId: UUID, fullness: Double?)
     fun onStockClick(taxLayerId: UUID, stock: Double?)
     fun onDeleteTaxLayerClick(taxLayerId: UUID)
-
 }

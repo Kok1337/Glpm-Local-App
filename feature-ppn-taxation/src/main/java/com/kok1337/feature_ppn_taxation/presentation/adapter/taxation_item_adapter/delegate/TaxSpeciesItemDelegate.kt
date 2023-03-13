@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.kok1337.feature_ppn_taxation.databinding.ItemTaxLayerSpeciesBinding
 import com.kok1337.feature_ppn_taxation.presentation.adapter.taxation_item_adapter.TaxationItem
-import com.kok1337.feature_ppn_taxation.presentation.adapter.taxation_item_adapter.listener.TaxSpeciesListener
 import com.kok1337.feature_ppn_taxation.presentation.adapter.taxation_item_adapter.item.TaxSpeciesItem
+import com.kok1337.feature_ppn_taxation.presentation.adapter.taxation_item_adapter.listener.TaxSpeciesListener
 
 internal class TaxSpeciesItemDelegate(
     private val taxSpeciesListener: TaxSpeciesListener,
@@ -48,6 +48,10 @@ internal class TaxSpeciesItemDelegate(
         binding.taxLayerSpeciesShortNameTextView.text = item.species?.shortName ?: ""
         binding.taxLayerSpeciesShortNameTextView.setOnClickListener {
             taxSpeciesListener.onSpeciesClick(taxSpeciesItem, item.species)
+        }
+        binding.taxLayerSpeciesShortNameTextView.setOnLongClickListener {
+            taxSpeciesListener.onSpeciesLongClick(item.species)
+            true
         }
 
         binding.taxLayerSpeciesAgeTextView.text = item.age?.toString() ?: ""

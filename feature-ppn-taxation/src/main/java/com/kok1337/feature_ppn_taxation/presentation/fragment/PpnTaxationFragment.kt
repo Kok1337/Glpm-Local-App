@@ -12,6 +12,7 @@ import com.kok1337.dialog.presentation.dialog.InputDoubleDialog
 import com.kok1337.dialog.presentation.dialog.InputIntDialog
 import com.kok1337.dialog.presentation.dialog.InputStringDialog
 import com.kok1337.extensions.showDialog
+import com.kok1337.extensions.showToast
 import com.kok1337.feature_ppn_taxation.R
 import com.kok1337.feature_ppn_taxation.databinding.FragmentPpnTaxationBinding
 import com.kok1337.feature_ppn_taxation.di.DaggerFeaturePpnTaxationFragmentComponent
@@ -134,6 +135,10 @@ class PpnTaxationFragment : Fragment(R.layout.fragment_ppn_taxation), AdapterLis
         showDialog(dialog, requireContext())
     }
 
+    override fun onCompositionLongClick(composition: String) {
+        showToast("Состав: $composition")
+    }
+
     override fun onTaxLayerHeightClick(taxLayerId: UUID, height: Int?) {
         val dialog = InputIntDialog(
             title = "Введите Высоту",
@@ -160,6 +165,10 @@ class PpnTaxationFragment : Fragment(R.layout.fragment_ppn_taxation), AdapterLis
             viewModel.enterTaxLayerAgeGroupByIdUseCase(taxLayerId, it)
         }
         showDialog(dialog, requireContext())
+    }
+
+    override fun onAgeGroupLongClick(ageGroup: AgeGroup?) {
+        ageGroup?.let { showToast(ageGroup.name) }
     }
 
     override fun onFullnessClick(taxLayerId: UUID, fullness: Double?) {
@@ -192,6 +201,10 @@ class PpnTaxationFragment : Fragment(R.layout.fragment_ppn_taxation), AdapterLis
             viewModel.enterTaxSpeciesSpeciesByIdUseCase(taxLayerSpeciesId, it)
         }
         showDialog(dialog, requireContext())
+    }
+
+    override fun onSpeciesLongClick(species: Species?) {
+        species?.let { showToast(it.fullName) }
     }
 
     override fun onCoeffClick(taxLayerSpeciesId: UUID, coeff: Int?) {

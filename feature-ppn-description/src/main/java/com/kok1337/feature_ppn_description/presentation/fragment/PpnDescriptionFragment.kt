@@ -11,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.kok1337.address.domain.model.*
 import com.kok1337.dialog.presentation.dialog.InputStringDialog
 import com.kok1337.extensions.showDialog
+import com.kok1337.extensions.showToast
 import com.kok1337.feature_ppn_description.R
 import com.kok1337.feature_ppn_description.databinding.FragmentPpnDescriptionBinding
 import com.kok1337.feature_ppn_description.di.DaggerFeaturePpnDescriptionFragmentComponent
@@ -55,33 +56,40 @@ class PpnDescriptionFragment : Fragment(R.layout.fragment_ppn_description), Adap
 
     override fun onFederalDistrictClick(federalDistrict: FederalDistrict?) {}
     override fun onFederalDistrictLongClick(federalDistrict: FederalDistrict?) {
+        federalDistrict?.let { showToast("Федеральный округ: ${it.name}") }
     }
 
     override fun onRegionClick(region: Region?) = openRegionDialog(region)
     override fun onRegionLongClick(region: Region?) {
+        region?.let { showToast("Субъект: ${it.name}") }
     }
 
     override fun onForestryClick(forestry: Forestry?) = openForestryDialog(forestry)
     override fun onForestryLongClick(forestry: Forestry?) {
+        forestry?.let { showToast("Лесничество: ${it.name}") }
     }
 
     override fun onLocalForestryClick(localForestry: LocalForestry?) =
         openLocalForestryDialog(localForestry)
 
     override fun onLocalForestryLongClick(localForestry: LocalForestry?) {
+        localForestry?.let { showToast("Участковое лесничество: ${it.name}") }
     }
 
     override fun onSubForestryClick(subForestry: SubForestry?) = openSubForestryDialog(subForestry)
     override fun onSubForestryLongClick(subForestry: SubForestry?) {
+        subForestry?.let { showToast("Урочища, дачи, колхозы и т.д.: ${it.name}") }
     }
 
     override fun onAreaClick(area: String?) = openAreaDialog(area)
     override fun onAreaLongClick(area: String?) {
+        area?.let { showToast("Квартал: $it") }
     }
 
     override fun onSectionClick(section: String?) = openSectionDialog(section)
 
     override fun onSectionLongClick(section: String?) {
+        section?.let { showToast("Выдел: $it") }
     }
 
     inner class RegionSearchableSpinnerRepository : SearchableSpinnerRepository<Region> {
@@ -155,7 +163,7 @@ class PpnDescriptionFragment : Fragment(R.layout.fragment_ppn_description), Adap
 
     private fun openSectionDialog(section: String?) {
         val dialog =
-            InputStringDialog(title = "Введите Выдел", startValue = section, ) { newSection ->
+            InputStringDialog(title = "Введите Выдел", startValue = section) { newSection ->
                 if (newSection != null) openTaxPreviewDialog(newSection)
             }
         showDialog(dialog, requireContext())
