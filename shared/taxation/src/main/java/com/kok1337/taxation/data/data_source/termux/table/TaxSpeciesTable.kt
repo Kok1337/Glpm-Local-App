@@ -39,7 +39,7 @@ internal object TaxSpeciesTable :
             isExtra = row[isExtra]!!,
             name = row[name]!!,
             speciesNum = row[speciesNum],
-            gen = row[gen]!!,
+            gen = row[gen],
             stock = row[stock],
             merchantabilityGroupId = row[merchantabilityGroupId],
         )

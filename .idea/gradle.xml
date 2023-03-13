@@ -31,6 +31,7 @@
             <option value="$PROJECT_DIR$/feature-ppn/feature-ppn-sample" />
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/shared/address" />
+            <option value="$PROJECT_DIR$/shared/ppn" />
             <option value="$PROJECT_DIR$/shared/species" />
             <option value="$PROJECT_DIR$/shared/taxation" />
           </set>

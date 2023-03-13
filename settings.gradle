@@ -64,3 +64,4 @@ include ':feature-ppn-taxation'
 
 //include ':feature-ppn-description:feature-ppn-description-sample'
 //include ':feature-ppn-taxation:feature-ppn-taxation-sample'
+include ':shared:ppn'
